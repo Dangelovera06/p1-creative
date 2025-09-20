@@ -127,6 +127,35 @@ export default function Quiz() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
+  // Handle contact form submission
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.target);
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        setShowResults(true);
+        setShowContactForm(false);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
 
   const handleAnswer = (questionId, answer) => {
@@ -183,37 +212,6 @@ export default function Quiz() {
     };
   };
 
-  const handleLeadCapture = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Submit to Netlify Forms
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          'form-name': 'quiz-results',
-          ...leadInfo,
-          'quiz-answers': JSON.stringify(answers),
-          'quiz-results': JSON.stringify(getResults())
-        }).toString(),
-      });
-
-      if (response.ok) {
-        setIsComplete(true);
-      } else {
-        throw new Error('Failed to submit');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to submit. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const goHome = () => {
     window.location.href = '/';
@@ -299,10 +297,7 @@ export default function Quiz() {
               name="quiz-contact"
               method="POST"
               netlify
-              onSubmit={(e) => {
-                e.preventDefault();
-                setShowResults(true);
-              }}
+              onSubmit={handleContactSubmit}
               className="space-y-6"
             >
               <input type="hidden" name="form-name" value="quiz-contact" />
@@ -377,10 +372,20 @@ export default function Quiz() {
                 
                 <button
                   type="submit"
-                  className="bg-black hover:bg-gray-800 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-2xl text-base font-semibold flex items-center"
+                  disabled={isSubmitting}
+                  className="bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-2xl text-base font-semibold flex items-center"
                 >
-                  <Zap className="mr-2 h-5 w-5" />
-                  Get Results
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <Zap className="mr-2 h-5 w-5" />
+                      Get Results
+                    </>
+                  )}
                 </button>
               </div>
             </form>

@@ -15,9 +15,10 @@ import {
 } from "lucide-react";
 
 import Hero from "../components/landing/Hero";
+import Stats from "../components/landing/Stats";
+import Testimonials from "../components/landing/Testimonials";
 import Services from "../components/landing/Services";
 import Results from "../components/landing/Results";
-import Testimonials from "../components/landing/Testimonials";
 import About from "../components/landing/About";
 import Founder from "../components/landing/Founder";
 import Contact from "../components/landing/Contact";
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
+      <Stats />
       <Testimonials />
       <Services />
       <Results />

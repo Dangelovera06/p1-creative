@@ -69,18 +69,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
-          <div className="relative mt-12 lg:mt-0">
-            <div className="relative z-10 max-w-4xl mx-auto">
-              <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/802b17797_7b94a3b88da63def1809c0a80c5a3e2d.jpg"
-                alt="Modern medical practice interior"
-                className="rounded-2xl shadow-2xl"
-              />
-            </div>
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-black rounded-full opacity-10 hidden md:block"></div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gray-600 rounded-full opacity-10 hidden md:block"></div>
-          </div>
         </div>
       </div>
 

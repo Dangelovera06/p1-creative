@@ -12,7 +12,8 @@ import {
   Users,
   Target,
   Zap,
-  Home
+  Home,
+  Calendar
 } from "lucide-react";
 
 const quizQuestions = [
@@ -114,6 +115,7 @@ const quizQuestions = [
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [showContactForm, setShowContactForm] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [leadInfo, setLeadInfo] = useState({
     name: '',
@@ -152,7 +154,7 @@ export default function Quiz() {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      setShowResults(true);
+      setShowContactForm(true);
     }
   };
 
@@ -244,13 +246,137 @@ export default function Quiz() {
                     📧 Check your email for your detailed business growth analysis
                   </p>
                 </div>
-                <Button 
-                  onClick={goHome}
-                  className="bg-white text-black hover:bg-gray-100 px-8 py-3"
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    onClick={() => window.open('https://calendly.com/p1creative/30min', '_blank')}
+                    className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
+                  >
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Book a Strategy Call
+                  </Button>
+                  <Button 
+                    onClick={goHome}
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-black px-8 py-3"
+                  >
+                    <Home className="mr-2 h-5 w-5" />
+                    Back to Home
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
+  if (showContactForm) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12">
+        <div className="max-w-2xl mx-auto px-6 lg:px-8">
+          <Card className="border border-gray-200 shadow-lg">
+            <CardContent className="p-12">
+              <div className="space-y-8">
+                <div className="text-center">
+                  <Badge className="bg-green-100 text-green-800 border-green-200 text-lg px-4 py-2 mb-4">
+                    Almost Done!
+                  </Badge>
+                  <h1 className="text-2xl font-semibold text-black mb-4">
+                    Get Your Personalized Results
+                  </h1>
+                  <p className="text-lg text-gray-700">
+                    Enter your contact information to receive your business growth analysis and personalized recommendations.
+                  </p>
+                </div>
+
+                <form 
+                  name="quiz-contact"
+                  method="POST"
+                  netlify
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setShowResults(true);
+                  }}
+                  className="space-y-6"
                 >
-                  <Home className="mr-2 h-5 w-5" />
-                  Back to Home
-                </Button>
+                  <input type="hidden" name="form-name" value="quiz-contact" />
+                  <input type="hidden" name="quiz-answers" value={JSON.stringify(answers)} />
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-2">Your Name *</label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="John Smith"
+                      value={leadInfo.name}
+                      onChange={(e) => setLeadInfo({...leadInfo, name: e.target.value})}
+                      required
+                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-2">Email Address *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="john@business.com"
+                      value={leadInfo.email}
+                      onChange={(e) => setLeadInfo({...leadInfo, email: e.target.value})}
+                      required
+                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-2">Phone Number *</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="(555) 123-4567"
+                      value={leadInfo.phone}
+                      onChange={(e) => setLeadInfo({...leadInfo, phone: e.target.value})}
+                      required
+                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-2">Business Name</label>
+                    <input
+                      type="text"
+                      name="business"
+                      placeholder="Your Business Name"
+                      value={leadInfo.business}
+                      onChange={(e) => setLeadInfo({...leadInfo, business: e.target.value})}
+                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
+                    />
+                  </div>
+
+                  <div className="flex justify-between pt-6">
+                    <Button
+                      type="button"
+                      onClick={() => {
+                        setShowContactForm(false);
+                        setCurrentQuestion(quizQuestions.length - 1);
+                      }}
+                      variant="outline"
+                      className="border-gray-300 px-6 py-3"
+                    >
+                      <ArrowLeft className="mr-2 h-5 w-5" />
+                      Back to Quiz
+                    </Button>
+                    
+                    <button
+                      type="submit"
+                      className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center"
+                    >
+                      <Zap className="mr-2 h-6 w-6" />
+                      Get My Results
+                    </button>
+                  </div>
+                </form>
               </div>
             </CardContent>
           </Card>
@@ -306,11 +432,11 @@ export default function Quiz() {
                 </div>
 
                 <Button 
-                  onClick={() => setShowLeadCapture(true)}
+                  onClick={() => setIsComplete(true)}
                   className="bg-black hover:bg-gray-800 text-white py-4 px-8 text-lg"
                 >
                   <Zap className="mr-2 h-6 w-6" />
-                  Get My Personalized Growth Plan
+                  Complete Assessment
                 </Button>
               </div>
             </CardContent>

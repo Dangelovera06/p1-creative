@@ -231,45 +231,64 @@ export default function Quiz() {
 
   if (isComplete) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <Card className="border border-gray-200 shadow-lg bg-gradient-to-br from-black to-gray-800 text-white">
-            <CardContent className="p-12 text-center">
-              <div className="space-y-8">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle className="h-10 w-10 text-black" />
-                </div>
-                <div>
-                  <h1 className="text-3xl font-bold mb-4">Thank You!</h1>
-                  <p className="text-xl text-gray-300 mb-6">
-                    We've received your quiz results and will send you a personalized growth strategy within 24 hours.
-                  </p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-6">
-                  <p className="text-lg">
-                    📧 Check your email for your detailed business growth analysis
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    onClick={() => window.open('https://calendly.com/p1creative/30min', '_blank')}
-                    className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
-                  >
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Book a Strategy Call
-                  </Button>
-                  <Button 
-                    onClick={goHome}
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-black px-8 py-3"
-                  >
-                    <Home className="mr-2 h-5 w-5" />
-                    Back to Home
-                  </Button>
-                </div>
+      <div className="min-h-screen bg-gradient-to-br from-black to-gray-800 flex flex-col text-white">
+        {/* Header */}
+        <div className="bg-black/20 backdrop-blur-sm border-b border-white/10 px-4 py-4 sm:px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <Badge className="bg-green-100 text-green-800 border-green-200 text-sm px-3 py-1">
+              Assessment Complete
+            </Badge>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col justify-center px-4 py-6 sm:px-6">
+          <div className="max-w-2xl mx-auto w-full text-center">
+            {/* Success Icon */}
+            <div className="mb-8">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 text-black" />
               </div>
-            </CardContent>
-          </Card>
+              <h1 className="text-3xl sm:text-4xl font-bold mb-4">Thank You!</h1>
+              <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+                We've received your quiz results and will send you a personalized growth strategy within 24 hours.
+              </p>
+            </div>
+
+            {/* Email Notice */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8">
+              <p className="text-lg sm:text-xl">
+                📧 Check your email for your detailed business growth analysis
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="space-y-4">
+              <Button 
+                onClick={() => window.open('https://calendly.com/p1creative/30min', '_blank')}
+                className="w-full bg-white text-black hover:bg-gray-100 py-4 text-lg font-semibold rounded-2xl"
+              >
+                <Calendar className="mr-2 h-6 w-6" />
+                Book a Strategy Call
+              </Button>
+              
+              <Button 
+                onClick={goHome}
+                variant="outline"
+                className="w-full border-white text-white hover:bg-white hover:text-black py-4 text-lg rounded-2xl"
+              >
+                <Home className="mr-2 h-6 w-6" />
+                Back to Home
+              </Button>
+            </div>
+
+            {/* Additional Info */}
+            <div className="mt-8 text-center">
+              <p className="text-sm text-gray-400">
+                🚀 Ready to accelerate your business growth? Book a call to discuss your personalized strategy.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -403,58 +422,74 @@ export default function Quiz() {
     const results = getResults();
     
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <Card className="border border-gray-200 shadow-lg">
-            <CardContent className="p-12">
-              <div className="text-center space-y-8">
-                <Badge className="bg-green-100 text-green-800 border-green-200 text-lg px-4 py-2">
-                  Analysis Complete
-                </Badge>
-                
-                <div>
-                  <h1 className="text-3xl font-bold text-black mb-4">{results.title}</h1>
-                  <div className="flex items-center justify-center space-x-4 mb-6">
-                    <div className="text-5xl font-bold text-green-600">{results.score}%</div>
-                    <div className="text-xl text-gray-600">Growth Potential</div>
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex flex-col">
+        {/* Header */}
+        <div className="bg-white shadow-sm border-b px-4 py-4 sm:px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <Badge className="bg-green-100 text-green-800 border-green-200 text-sm px-3 py-1">
+              Analysis Complete
+            </Badge>
+          </div>
+        </div>
+
+        {/* Main Content - Scrollable */}
+        <div className="flex-1 flex flex-col px-4 py-6 sm:px-6">
+          <div className="max-w-2xl mx-auto w-full">
+            {/* Results Header */}
+            <div className="text-center mb-8">
+              <h1 className="text-2xl sm:text-3xl font-bold text-black mb-6 leading-tight">
+                {results.title}
+              </h1>
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mb-6">
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                  <div className="text-center">
+                    <div className="text-5xl sm:text-6xl font-bold text-green-600 mb-2">{results.score}%</div>
+                    <div className="text-lg text-gray-600 font-medium">Growth Potential</div>
                   </div>
                 </div>
-
-                <div className="bg-gray-50 rounded-xl p-8 space-y-6">
-                  <div className="flex items-center justify-center space-x-4">
-                    <TrendingUp className="h-8 w-8 text-green-600" />
-                    <div className="text-center">
-                      <div className="text-xl font-semibold">Potential Customer Increase</div>
-                      <div className="text-3xl text-green-600 font-bold">{results.potentialIncrease}</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-left space-y-4">
-                    <div className="text-xl font-semibold flex items-center justify-center">
-                      <Target className="h-6 w-6 mr-3 text-blue-600" />
-                      Recommended Next Steps:
-                    </div>
-                    <ul className="space-y-3 text-gray-700 max-w-2xl mx-auto">
-                      {results.recommendations.map((rec, index) => (
-                        <li key={index} className="flex items-center text-lg">
-                          <div className="w-3 h-3 bg-blue-600 rounded-full mr-4"></div>
-                          {rec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <Button 
-                  onClick={() => setIsComplete(true)}
-                  className="bg-black hover:bg-gray-800 text-white py-4 px-8 text-lg"
-                >
-                  <Zap className="mr-2 h-6 w-6" />
-                  Complete Assessment
-                </Button>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            {/* Growth Potential */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mb-6">
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <TrendingUp className="h-8 w-8 text-green-600" />
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-semibold text-black">Potential Customer Increase</div>
+                  <div className="text-2xl sm:text-3xl text-green-600 font-bold">{results.potentialIncrease}</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Recommendations */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mb-8">
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Target className="h-6 w-6 mr-3 text-blue-600" />
+                  <h3 className="text-lg sm:text-xl font-semibold text-black">Recommended Next Steps</h3>
+                </div>
+              </div>
+              <ul className="space-y-4">
+                {results.recommendations.map((rec, index) => (
+                  <li key={index} className="flex items-start">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-2 flex-shrink-0"></div>
+                    <span className="text-base sm:text-lg text-gray-700 leading-relaxed">{rec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA Button - Fixed at bottom */}
+            <div className="sticky bottom-0 bg-white border-t pt-6 -mx-4 px-4 sm:-mx-6 sm:px-6">
+              <Button 
+                onClick={() => setIsComplete(true)}
+                className="w-full bg-black hover:bg-gray-800 text-white py-4 text-lg font-semibold rounded-2xl"
+              >
+                <Zap className="mr-2 h-6 w-6" />
+                Complete Assessment
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     );

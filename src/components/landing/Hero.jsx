@@ -69,23 +69,28 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 pt-8">
-              <div className="flex items-center space-x-2">
-                <Users className="h-8 w-8 text-black" />
-                <div>
-                  <div className="text-2xl font-bold text-black">250+</div>
-                  <div className="text-sm text-gray-600">Medical Practices</div>
+            {/* Numbers Don't Lie Section */}
+            <div className="mt-16 text-center">
+              <Badge variant="secondary" className="bg-black text-white border-black mb-6">
+                The Numbers Don't Lie
+              </Badge>
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-8 sm:space-y-0 sm:space-x-12">
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-black mb-2">250+</div>
+                  <div className="text-lg text-gray-600">Medical Practices Served</div>
                 </div>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="flex -space-x-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-black fill-current" />
-                  ))}
+                <div className="text-center">
+                  <div className="flex justify-center mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 text-black fill-current" />
+                    ))}
+                  </div>
+                  <div className="text-5xl font-bold text-black mb-2">4.9/5</div>
+                  <div className="text-lg text-gray-600">Average Client Rating</div>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-black">4.9/5</div>
-                  <div className="text-sm text-gray-600">Client Rating</div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-black mb-2">300%</div>
+                  <div className="text-lg text-gray-600">Average Growth Increase</div>
                 </div>
               </div>
             </div>

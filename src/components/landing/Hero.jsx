@@ -4,9 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Star } from "lucide-react";
 
 export default function Hero() {
-  const openCalendly = () => {
-    window.open('https://calendly.com/p1creative/30min', '_blank');
-  };
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
@@ -44,11 +41,11 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                onClick={openCalendly}
+                onClick={() => window.location.href = '/Quiz'}
                 size="lg" 
                 className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full text-lg font-semibold"
               >
-                Book Free Consultation
+                Start Growing Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>

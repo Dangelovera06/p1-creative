@@ -96,6 +96,18 @@ const quizQuestions = [
       "Build a sustainable marketing system",
       "Expand to new locations"
     ]
+  },
+  {
+    id: 7,
+    question: "How would you prefer us to contact you with your results?",
+    type: "single",
+    options: [
+      "Email me the detailed report",
+      "Call me to discuss the results",
+      "Text me a summary first",
+      "Schedule a strategy session",
+      "Send me everything via email"
+    ]
   }
 ];
 

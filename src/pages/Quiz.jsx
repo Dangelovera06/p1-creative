@@ -273,113 +273,118 @@ export default function Quiz() {
 
   if (showContactForm) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-2xl mx-auto px-6 lg:px-8">
-          <Card className="border border-gray-200 shadow-lg">
-            <CardContent className="p-12">
-              <div className="space-y-8">
-                <div className="text-center">
-                  <Badge className="bg-green-100 text-green-800 border-green-200 text-lg px-4 py-2 mb-4">
-                    Almost Done!
-                  </Badge>
-                  <h1 className="text-2xl font-semibold text-black mb-4">
-                    Get Your Personalized Results
-                  </h1>
-                  <p className="text-lg text-gray-700">
-                    Enter your contact information to receive your business growth analysis and personalized recommendations.
-                  </p>
-                </div>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col">
+        {/* Header */}
+        <div className="bg-white shadow-sm border-b px-4 py-4 sm:px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <Badge className="bg-green-100 text-green-800 border-green-200 text-sm px-3 py-1">
+              Almost Done!
+            </Badge>
+          </div>
+        </div>
 
-                <form 
-                  name="quiz-contact"
-                  method="POST"
-                  netlify
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setShowResults(true);
-                  }}
-                  className="space-y-6"
-                >
-                  <input type="hidden" name="form-name" value="quiz-contact" />
-                  <input type="hidden" name="quiz-answers" value={JSON.stringify(answers)} />
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-black mb-2">Your Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="John Smith"
-                      value={leadInfo.name}
-                      onChange={(e) => setLeadInfo({...leadInfo, name: e.target.value})}
-                      required
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-black mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="john@business.com"
-                      value={leadInfo.email}
-                      onChange={(e) => setLeadInfo({...leadInfo, email: e.target.value})}
-                      required
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-black mb-2">Phone Number *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="(555) 123-4567"
-                      value={leadInfo.phone}
-                      onChange={(e) => setLeadInfo({...leadInfo, phone: e.target.value})}
-                      required
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
-                    />
-                  </div>
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col px-4 py-6 sm:px-6">
+          <div className="max-w-2xl mx-auto w-full">
+            <div className="text-center mb-8">
+              <h1 className="text-2xl sm:text-3xl font-bold text-black mb-4">
+                Get Your Personalized Results
+              </h1>
+              <p className="text-base sm:text-lg text-gray-700">
+                Enter your contact information to receive your business growth analysis and personalized recommendations.
+              </p>
+            </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-black mb-2">Business Name</label>
-                    <input
-                      type="text"
-                      name="business"
-                      placeholder="Your Business Name"
-                      value={leadInfo.business}
-                      onChange={(e) => setLeadInfo({...leadInfo, business: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-black text-lg"
-                    />
-                  </div>
-
-                  <div className="flex justify-between pt-6">
-                    <Button
-                      type="button"
-                      onClick={() => {
-                        setShowContactForm(false);
-                        setCurrentQuestion(quizQuestions.length - 1);
-                      }}
-                      variant="outline"
-                      className="border-gray-300 px-6 py-3"
-                    >
-                      <ArrowLeft className="mr-2 h-5 w-5" />
-                      Back to Quiz
-                    </Button>
-                    
-                    <button
-                      type="submit"
-                      className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center"
-                    >
-                      <Zap className="mr-2 h-6 w-6" />
-                      Get My Results
-                    </button>
-                  </div>
-                </form>
+            <form 
+              name="quiz-contact"
+              method="POST"
+              netlify
+              onSubmit={(e) => {
+                e.preventDefault();
+                setShowResults(true);
+              }}
+              className="space-y-6"
+            >
+              <input type="hidden" name="form-name" value="quiz-contact" />
+              <input type="hidden" name="quiz-answers" value={JSON.stringify(answers)} />
+              
+              <div>
+                <label className="block text-sm font-medium text-black mb-3">Your Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="John Smith"
+                  value={leadInfo.name}
+                  onChange={(e) => setLeadInfo({...leadInfo, name: e.target.value})}
+                  required
+                  className="w-full p-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:ring-0 text-base sm:text-lg bg-white"
+                />
               </div>
-            </CardContent>
-          </Card>
+              
+              <div>
+                <label className="block text-sm font-medium text-black mb-3">Email Address *</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="john@business.com"
+                  value={leadInfo.email}
+                  onChange={(e) => setLeadInfo({...leadInfo, email: e.target.value})}
+                  required
+                  className="w-full p-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:ring-0 text-base sm:text-lg bg-white"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-black mb-3">Phone Number *</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="(555) 123-4567"
+                  value={leadInfo.phone}
+                  onChange={(e) => setLeadInfo({...leadInfo, phone: e.target.value})}
+                  required
+                  className="w-full p-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:ring-0 text-base sm:text-lg bg-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-black mb-3">Business Name</label>
+                <input
+                  type="text"
+                  name="business"
+                  placeholder="Your Business Name"
+                  value={leadInfo.business}
+                  onChange={(e) => setLeadInfo({...leadInfo, business: e.target.value})}
+                  className="w-full p-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:ring-0 text-base sm:text-lg bg-white"
+                />
+              </div>
+
+              {/* Navigation - Fixed at bottom */}
+              <div className="flex justify-between items-center pt-8 border-t bg-white sticky bottom-0 -mx-4 px-4 py-4 sm:-mx-6 sm:px-6 mt-8">
+                <Button
+                  type="button"
+                  onClick={() => {
+                    setShowContactForm(false);
+                    setCurrentQuestion(quizQuestions.length - 1);
+                  }}
+                  variant="outline"
+                  className="border-gray-300 px-4 py-2 sm:px-6 sm:py-3"
+                  size="sm"
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back
+                </Button>
+                
+                <button
+                  type="submit"
+                  className="bg-black hover:bg-gray-800 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-2xl text-base font-semibold flex items-center"
+                >
+                  <Zap className="mr-2 h-5 w-5" />
+                  Get Results
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );
@@ -549,93 +554,89 @@ export default function Quiz() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="bg-black text-white border-black mb-4">
-            Business Growth Quiz
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">
-            Discover Your Growth Potential
-          </h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Take our quick assessment to get a personalized marketing strategy for your business.
-          </p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col">
+      {/* Header - Fixed at top */}
+      <div className="bg-white shadow-sm border-b px-4 py-4 sm:px-6">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center justify-between mb-3">
+            <Badge variant="secondary" className="bg-black text-white border-black text-sm">
+              Business Growth Quiz
+            </Badge>
+            <span className="text-sm text-gray-500">
+              {currentQuestion + 1} of {quizQuestions.length}
+            </span>
+          </div>
+          <Progress value={progress} className="h-2" />
+          <div className="text-center mt-2">
+            <span className="text-sm text-gray-600">{Math.round(progress)}% Complete</span>
+          </div>
         </div>
+      </div>
 
-        <Card className="border border-gray-200 shadow-lg">
-          <CardContent className="p-12">
-            <div className="space-y-8">
-              {/* Progress Bar */}
-              <div className="space-y-3">
-                <div className="flex justify-between text-lg text-gray-600">
-                  <span>Question {currentQuestion + 1} of {quizQuestions.length}</span>
-                  <span>{Math.round(progress)}% Complete</span>
-                </div>
-                <Progress value={progress} className="h-3" />
-              </div>
-
-              {/* Question */}
-              <div className="space-y-6">
-                <h2 className="text-2xl font-semibold text-black">
-                  {currentQuestionData.question}
-                </h2>
-                
-                <div className="space-y-3">
-                  {currentQuestionData.options.map((option, index) => {
-                    const isSelected = currentQuestionData.type === 'multiple'
-                      ? (currentAnswer || []).includes(option)
-                      : currentAnswer === option;
-                    
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => handleAnswer(currentQuestionData.id, option)}
-                        className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
-                          isSelected
-                            ? 'border-black bg-black text-white'
-                            : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50'
-                        }`}
-                      >
-                        <div className="flex items-center">
-                          <div className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
-                            isSelected ? 'bg-white border-white' : 'border-gray-400'
-                          }`}>
-                            {isSelected && <CheckCircle className="w-4 h-4 text-black" />}
-                          </div>
-                          {option}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex justify-between pt-6">
-                <Button
-                  onClick={prevQuestion}
-                  disabled={currentQuestion === 0}
-                  variant="outline"
-                  className="border-gray-300 px-6 py-3"
+      {/* Main Content - Scrollable */}
+      <div className="flex-1 flex flex-col px-4 py-6 sm:px-6">
+        <div className="max-w-2xl mx-auto w-full flex-1 flex flex-col">
+          {/* Question */}
+          <div className="mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-black mb-6 leading-tight">
+              {currentQuestionData.question}
+            </h1>
+          </div>
+          
+          {/* Options */}
+          <div className="space-y-3 mb-8 flex-1">
+            {currentQuestionData.options.map((option, index) => {
+              const isSelected = currentQuestionData.type === 'multiple'
+                ? (currentAnswer || []).includes(option)
+                : currentAnswer === option;
+              
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleAnswer(currentQuestionData.id, option)}
+                  className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all duration-200 text-base sm:text-lg ${
+                    isSelected
+                      ? 'border-black bg-black text-white shadow-lg transform scale-[1.02]'
+                      : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md'
+                  }`}
                 >
-                  <ArrowLeft className="mr-2 h-5 w-5" />
-                  Previous
-                </Button>
-                
-                <Button
-                  onClick={nextQuestion}
-                  disabled={!canProceed}
-                  className="bg-black hover:bg-gray-800 text-white px-6 py-3"
-                >
-                  {currentQuestion === quizQuestions.length - 1 ? 'See Results' : 'Next'}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+                  <div className="flex items-center">
+                    <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center flex-shrink-0 ${
+                      isSelected ? 'bg-white border-white' : 'border-gray-400'
+                    }`}>
+                      {isSelected && <CheckCircle className="w-4 h-4 text-black" />}
+                    </div>
+                    <span className="leading-relaxed">{option}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Navigation - Fixed at bottom */}
+          <div className="flex justify-between items-center pt-4 border-t bg-white sticky bottom-0 -mx-4 px-4 py-4 sm:-mx-6 sm:px-6">
+            <Button
+              onClick={prevQuestion}
+              disabled={currentQuestion === 0}
+              variant="outline"
+              className="border-gray-300 px-4 py-2 sm:px-6 sm:py-3"
+              size="sm"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
+            
+            <Button
+              onClick={nextQuestion}
+              disabled={!canProceed}
+              className="bg-black hover:bg-gray-800 text-white px-6 py-2 sm:px-8 sm:py-3 text-base font-semibold"
+              size="sm"
+            >
+              {currentQuestion === quizQuestions.length - 1 ? 'Continue' : 'Next'}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

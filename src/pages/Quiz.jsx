@@ -325,10 +325,9 @@ export default function Quiz() {
                 </div>
 
                 <form 
-                  onSubmit={handleLeadCapture}
                   name="quiz-results"
                   method="POST"
-                  data-netlify="true"
+                  netlify
                   className="space-y-6"
                 >
                   <input type="hidden" name="form-name" value="quiz-results" />

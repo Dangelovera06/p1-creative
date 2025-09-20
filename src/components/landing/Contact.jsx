@@ -16,58 +16,9 @@ import {
 } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    practice: '',
-    phone: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          ...formData,
-        }).toString(),
-      });
-      
-      if (response.ok) {
-        setIsSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          practice: '',
-          phone: '',
-          message: ''
-        });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  // Form will be handled by Netlify natively
 
 
   if (isSubmitted) {
@@ -124,46 +75,37 @@ export default function Contact() {
             <Card className="border border-gray-200 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-black mb-6">Get Started Today</h3>
-                <form 
-                  onSubmit={handleSubmit} 
-                  className="space-y-6"
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                >
-                  {/* Hidden fields for Netlify */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <div className="hidden">
-                    <input name="bot-field" />
-                  </div>
+                  <form 
+                    name="contact" 
+                    method="POST" 
+                    netlify
+                    className="space-y-6"
+                  >
+                    <input type="hidden" name="form-name" value="contact" />
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-black mb-2">
                         Your Name *
                       </label>
-                      <Input
+                      <input
+                        type="text"
                         name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
                         required
                         placeholder="Dr. John Smith"
-                        className="w-full border-gray-300 focus:border-black focus:ring-black"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-black mb-2">
                         Email Address *
                       </label>
-                      <Input
-                        name="email"
+                      <input
                         type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
+                        name="email"
                         required
                         placeholder="doctor@practice.com"
-                        className="w-full border-gray-300 focus:border-black focus:ring-black"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
                       />
                     </div>
                   </div>
@@ -173,27 +115,24 @@ export default function Contact() {
                       <label className="block text-sm font-medium text-black mb-2">
                         Practice Name *
                       </label>
-                      <Input
+                      <input
+                        type="text"
                         name="practice"
-                        value={formData.practice}
-                        onChange={handleInputChange}
                         required
                         placeholder="Your Medical Practice"
-                        className="w-full border-gray-300 focus:border-black focus:ring-black"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-black mb-2">
                         Phone Number *
                       </label>
-                      <Input
-                        name="phone"
+                      <input
                         type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
+                        name="phone"
                         required
                         placeholder="(555) 123-4567"
-                        className="w-full border-gray-300 focus:border-black focus:ring-black"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
                       />
                     </div>
                   </div>
@@ -202,33 +141,21 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-black mb-2">
                       How can we help you?
                     </label>
-                    <Textarea
+                    <textarea
                       name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
                       placeholder="Tell us about your practice and marketing goals..."
                       rows={4}
-                      className="w-full border-gray-300 focus:border-black focus:ring-black"
-                    />
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
+                    ></textarea>
                   </div>
 
-                  <Button 
+                  <button 
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-full text-lg font-semibold"
+                    className="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-full text-lg font-semibold flex items-center justify-center"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-5 w-5" />
-                        Get Your Free Strategy Session
-                      </>
-                    )}
-                  </Button>
+                    <Send className="mr-2 h-5 w-5" />
+                    Get Your Free Strategy Session
+                  </button>
                 </form>
               </CardContent>
             </Card>

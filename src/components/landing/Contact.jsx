@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import QuizFunnel from "./QuizFunnel";
 import { 
   Phone, 
   Mail, 
@@ -36,23 +37,38 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        practice: '',
-        phone: '',
-        message: ''
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          ...formData,
+        }).toString(),
       });
-    }, 2000);
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          practice: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const openCalendly = () => {
-    window.open('https://calendly.com/p1creative/30min', '_blank');
-  };
 
   if (isSubmitted) {
     return (
@@ -108,7 +124,20 @@ export default function Contact() {
             <Card className="border border-gray-200 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-black mb-6">Get Started Today</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                >
+                  {/* Hidden fields for Netlify */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div className="hidden">
+                    <input name="bot-field" />
+                  </div>
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-black mb-2">
@@ -241,21 +270,17 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 shadow-lg bg-gray-50">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-black mb-4">Book a Free Consultation</h3>
-                <p className="text-gray-700 mb-6">
-                  Ready to discuss your medical practice's marketing needs? Schedule a free 30-minute consultation with our team.
+            <div className="space-y-4">
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  Discover Your Practice Growth Potential
+                </h3>
+                <p className="text-gray-700">
+                  Take our 2-minute quiz to get a personalized marketing strategy for your medical practice.
                 </p>
-                <Button 
-                  onClick={openCalendly}
-                  className="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-full"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Schedule Your Free Call
-                </Button>
-              </CardContent>
-            </Card>
+              </div>
+              <QuizFunnel />
+            </div>
 
             <Card className="border border-gray-200 shadow-lg bg-gray-50">
               <CardContent className="p-8">

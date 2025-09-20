@@ -1,6 +1,7 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, ArrowRight } from "lucide-react";
 
 export default function Stats() {
   return (
@@ -59,6 +60,24 @@ export default function Stats() {
             <div className="text-3xl font-bold text-purple-600 mb-2">98%</div>
             <div className="text-gray-700">Client Retention Rate</div>
           </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-black mb-4">
+            Ready to Join These Success Stories?
+          </h3>
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            Take our quick assessment to discover your business growth potential and get a personalized strategy.
+          </p>
+          <Button 
+            onClick={() => window.location.href = '/Quiz'}
+            size="lg" 
+            className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full text-lg font-semibold"
+          >
+            Get My Growth Strategy
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </div>

@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import QuizFunnel from "./QuizFunnel";
 import { 
   Phone, 
   Mail, 
   MapPin, 
   Calendar,
   Send,
-  CheckCircle
+  CheckCircle,
+  TrendingUp
 } from "lucide-react";
 
 export default function Contact() {
@@ -270,17 +270,33 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <div className="space-y-4">
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-black mb-2">
-                  Discover Your Practice Growth Potential
-                </h3>
-                <p className="text-gray-700">
-                  Take our 2-minute quiz to get a personalized marketing strategy for your medical practice.
-                </p>
-              </div>
-              <QuizFunnel />
-            </div>
+            <Card className="border border-gray-200 shadow-lg bg-gradient-to-br from-black to-gray-800 text-white">
+              <CardContent className="p-8">
+                <div className="text-center space-y-6">
+                  <TrendingUp className="h-12 w-12 text-white mx-auto" />
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-3">
+                      Discover Your Business Growth Potential
+                    </h3>
+                    <p className="text-gray-300 text-lg">
+                      Take our quick assessment to get a personalized marketing strategy and see how much your business could grow.
+                    </p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <p className="text-sm text-gray-300">
+                      ✨ Get instant results • 📊 Personalized analysis • 🚀 Growth recommendations
+                    </p>
+                  </div>
+                  <Button 
+                    onClick={() => window.location.href = '/Quiz'}
+                    className="w-full bg-white text-black hover:bg-gray-100 py-4 text-lg font-semibold"
+                  >
+                    <TrendingUp className="mr-2 h-6 w-6" />
+                    Start Your Growth Assessment
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
 
             <Card className="border border-gray-200 shadow-lg bg-gray-50">
               <CardContent className="p-8">

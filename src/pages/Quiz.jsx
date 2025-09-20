@@ -133,7 +133,13 @@ export default function Quiz() {
     setIsSubmitting(true);
 
     try {
-      const formData = new FormData(e.target);
+      const formData = new FormData();
+      formData.append('form-name', 'quiz-contact');
+      formData.append('name', leadInfo.name);
+      formData.append('email', leadInfo.email);
+      formData.append('phone', leadInfo.phone);
+      formData.append('business', leadInfo.business);
+      formData.append('quiz-answers', Object.entries(answers).map(([q, a]) => `Q${q}: ${Array.isArray(a) ? a.join(', ') : a}`).join('\n'));
       
       // Submit to Netlify
       const response = await fetch('/', {
@@ -300,8 +306,6 @@ export default function Quiz() {
               onSubmit={handleContactSubmit}
               className="space-y-6"
             >
-              <input type="hidden" name="form-name" value="quiz-contact" />
-              <input type="hidden" name="quiz-answers" value={JSON.stringify(answers)} />
               
               <div>
                 <label className="block text-sm font-medium text-black mb-3">Your Name *</label>

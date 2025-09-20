@@ -50,6 +50,25 @@ export default function Hero() {
               </Button>
             </div>
 
+            {/* Video Section */}
+            <div className="mt-12 max-w-4xl mx-auto">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/twCoTGBWGOs"
+                  title="P1 Creative - Business Growth Strategy"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="text-center mt-6">
+                <p className="text-lg text-gray-700 font-medium">
+                  Watch how we've helped 250+ businesses transform their growth
+                </p>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 pt-8">
               <div className="flex items-center space-x-2">
                 <Users className="h-8 w-8 text-black" />

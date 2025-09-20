@@ -242,7 +242,7 @@ export default function Quiz() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col justify-center px-4 py-6 sm:px-6">
+        <div className="flex-1 flex flex-col justify-center px-4 py-6 sm:px-6 pb-12">
           <div className="max-w-2xl mx-auto w-full text-center">
             {/* Success Icon */}
             <div className="mb-8">
@@ -263,10 +263,10 @@ export default function Quiz() {
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               <Button 
                 onClick={() => window.open('https://calendly.com/p1creative/30min', '_blank')}
-                className="w-full bg-white text-black hover:bg-gray-100 py-4 text-lg font-semibold rounded-2xl"
+                className="w-full bg-white text-black hover:bg-gray-100 py-4 text-lg font-semibold rounded-2xl shadow-lg"
               >
                 <Calendar className="mr-2 h-6 w-6" />
                 Book a Strategy Call
@@ -275,7 +275,7 @@ export default function Quiz() {
               <Button 
                 onClick={goHome}
                 variant="outline"
-                className="w-full border-white text-white hover:bg-white hover:text-black py-4 text-lg rounded-2xl"
+                className="w-full border-2 border-white text-white hover:bg-white hover:text-black py-4 text-lg font-semibold rounded-2xl"
               >
                 <Home className="mr-2 h-6 w-6" />
                 Back to Home
@@ -433,7 +433,7 @@ export default function Quiz() {
         </div>
 
         {/* Main Content - Scrollable */}
-        <div className="flex-1 flex flex-col px-4 py-6 sm:px-6">
+        <div className="flex-1 flex flex-col px-4 py-6 sm:px-6 pb-8">
           <div className="max-w-2xl mx-auto w-full">
             {/* Results Header */}
             <div className="text-center mb-8">
@@ -480,7 +480,7 @@ export default function Quiz() {
             </div>
 
             {/* CTA Button - Fixed at bottom */}
-            <div className="sticky bottom-0 bg-white border-t pt-6 -mx-4 px-4 sm:-mx-6 sm:px-6">
+            <div className="mt-8">
               <Button 
                 onClick={() => setIsComplete(true)}
                 className="w-full bg-black hover:bg-gray-800 text-white py-4 text-lg font-semibold rounded-2xl"

@@ -129,15 +129,47 @@ export default function Quiz() {
 
   // Handle contact form submission
   const handleContactSubmit = (e) => {
-    // Don't prevent default - let Netlify handle the form naturally
+    e.preventDefault();
     setIsSubmitting(true);
     
-    // Show results after a short delay (form will submit in background)
+    // Add all the quiz data as hidden inputs to the form
+    const form = e.target;
+    
+    // Helper function to add hidden input
+    const addHiddenInput = (name, value) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value || '';
+      form.appendChild(input);
+    };
+    
+    // Add required form-name field
+    addHiddenInput('form-name', 'quiz-contact');
+    
+    // Add individual quiz questions
+    addHiddenInput('question_1_business_type', answers[1]);
+    addHiddenInput('question_2_monthly_customers', answers[2]);
+    addHiddenInput('question_3_biggest_challenge', answers[3]);
+    addHiddenInput('question_4_current_marketing', Array.isArray(answers[4]) ? answers[4].join(', ') : answers[4]);
+    addHiddenInput('question_5_marketing_budget', answers[5]);
+    addHiddenInput('question_6_primary_goal', answers[6]);
+    addHiddenInput('question_7_contact_preference', answers[7]);
+    
+    // Add metadata
+    addHiddenInput('quiz_completion_date', new Date().toISOString());
+    addHiddenInput('growth_score', getResults().score);
+    addHiddenInput('potential_increase', getResults().potentialIncrease);
+    
+    // Now submit the form naturally
+    form.submit();
+    
+    // Show results after a short delay
     setTimeout(() => {
       setShowResults(true);
       setShowContactForm(false);
       setIsSubmitting(false);
-    }, 2000);
+    }, 1000);
   };
 
   const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
@@ -303,20 +335,6 @@ export default function Quiz() {
               onSubmit={handleContactSubmit}
               className="space-y-6"
             >
-              {/* Required Netlify form field */}
-              <input type="hidden" name="form-name" value="quiz-contact" />
-              
-              {/* Hidden fields for individual quiz questions */}
-              <input type="hidden" name="question_1_business_type" value={answers[1] || ''} />
-              <input type="hidden" name="question_2_monthly_customers" value={answers[2] || ''} />
-              <input type="hidden" name="question_3_biggest_challenge" value={answers[3] || ''} />
-              <input type="hidden" name="question_4_current_marketing" value={Array.isArray(answers[4]) ? answers[4].join(', ') : (answers[4] || '')} />
-              <input type="hidden" name="question_5_marketing_budget" value={answers[5] || ''} />
-              <input type="hidden" name="question_6_primary_goal" value={answers[6] || ''} />
-              <input type="hidden" name="question_7_contact_preference" value={answers[7] || ''} />
-              <input type="hidden" name="quiz_completion_date" value={new Date().toISOString()} />
-              <input type="hidden" name="growth_score" value={getResults().score} />
-              <input type="hidden" name="potential_increase" value={getResults().potentialIncrease} />
               
               <div>
                 <label className="block text-sm font-medium text-black mb-3">Your Name *</label>

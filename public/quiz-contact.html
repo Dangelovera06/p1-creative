@@ -5,28 +5,36 @@
 </head>
 <body>
   <!-- This form is for Netlify form detection -->
-  <form name="quiz-contact" netlify hidden>
-    <input name="form-name" value="quiz-contact" />
+  <form name="quiz-contact" netlify>
+    <input type="hidden" name="form-name" value="quiz-contact" />
     
     <!-- Contact Information -->
-    <input name="name" />
-    <input name="email" />
-    <input name="phone" />
-    <input name="business" />
+    <label>Name: <input name="name" type="text" /></label><br>
+    <label>Email: <input name="email" type="email" /></label><br>
+    <label>Phone: <input name="phone" type="tel" /></label><br>
+    <label>Business: <input name="business" type="text" /></label><br>
     
     <!-- Individual Quiz Questions -->
-    <input name="question_1_business_type" />
-    <input name="question_2_monthly_customers" />
-    <input name="question_3_biggest_challenge" />
-    <input name="question_4_current_marketing" />
-    <input name="question_5_marketing_budget" />
-    <input name="question_6_primary_goal" />
-    <input name="question_7_contact_preference" />
+    <label>Business Type: <input name="question_1_business_type" type="text" /></label><br>
+    <label>Monthly Customers: <input name="question_2_monthly_customers" type="text" /></label><br>
+    <label>Biggest Challenge: <input name="question_3_biggest_challenge" type="text" /></label><br>
+    <label>Current Marketing: <input name="question_4_current_marketing" type="text" /></label><br>
+    <label>Marketing Budget: <input name="question_5_marketing_budget" type="text" /></label><br>
+    <label>Primary Goal: <input name="question_6_primary_goal" type="text" /></label><br>
+    <label>Contact Preference: <input name="question_7_contact_preference" type="text" /></label><br>
     
     <!-- Metadata -->
-    <input name="quiz_completion_date" />
-    <input name="growth_score" />
-    <input name="potential_increase" />
+    <label>Completion Date: <input name="quiz_completion_date" type="text" /></label><br>
+    <label>Growth Score: <input name="growth_score" type="text" /></label><br>
+    <label>Potential Increase: <input name="potential_increase" type="text" /></label><br>
+    
+    <button type="submit">Submit</button>
   </form>
+  
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin: 10px 0; }
+    input { margin-left: 10px; padding: 5px; }
+  </style>
 </body>
 </html>

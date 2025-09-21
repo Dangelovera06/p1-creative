@@ -136,6 +136,12 @@ export default function Quiz() {
       // Create form data with all the hidden fields
       const formData = new FormData(e.target);
       
+      // Debug: Log what we're sending
+      console.log('Form data being sent:');
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+      
       // Submit to Netlify
       const response = await fetch('/', {
         method: 'POST',

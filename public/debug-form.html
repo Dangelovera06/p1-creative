@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Quiz Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, textarea { margin: 5px 0; padding: 5px; width: 300px; }
+        button { padding: 10px 20px; background: black; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h1>Debug Quiz Form - Individual Fields Test</h1>
+    <p>This form tests if individual quiz fields are being sent to Netlify correctly.</p>
+    
+    <form name="quiz-contact" method="POST" netlify>
+        <input type="hidden" name="form-name" value="quiz-contact" />
+        
+        <h3>Contact Info (Visible):</h3>
+        <p>Name: <input name="name" value="Debug Test User" required /></p>
+        <p>Email: <input name="email" value="debug@test.com" type="email" required /></p>
+        <p>Phone: <input name="phone" value="555-DEBUG" required /></p>
+        <p>Business: <input name="business" value="Debug Business Inc" /></p>
+        
+        <h3>Quiz Questions (Hidden but visible here for testing):</h3>
+        <p>Q1 Business Type: <input name="question_1_business_type" value="Medical Practice" /></p>
+        <p>Q2 Monthly Customers: <input name="question_2_monthly_customers" value="26-50 customers" /></p>
+        <p>Q3 Biggest Challenge: <input name="question_3_biggest_challenge" value="Low online visibility/presence" /></p>
+        <p>Q4 Current Marketing: <input name="question_4_current_marketing" value="Google Ads, SEO/Website optimization" /></p>
+        <p>Q5 Marketing Budget: <input name="question_5_marketing_budget" value="$3,001 - $5,000" /></p>
+        <p>Q6 Primary Goal: <input name="question_6_primary_goal" value="Increase revenue by 25-50%" /></p>
+        <p>Q7 Contact Preference: <input name="question_7_contact_preference" value="Email me the detailed report" /></p>
+        
+        <h3>Metadata:</h3>
+        <p>Completion Date: <input name="quiz_completion_date" value="2024-01-15T10:30:00.000Z" /></p>
+        <p>Growth Score: <input name="growth_score" value="92" /></p>
+        <p>Potential Increase: <input name="potential_increase" value="200-350%" /></p>
+        
+        <br><br>
+        <button type="submit">Submit Debug Form</button>
+    </form>
+    
+    <h3>Instructions:</h3>
+    <ol>
+        <li>Fill out the form above and submit</li>
+        <li>Check your Netlify Forms dashboard</li>
+        <li>Look for a submission with ALL individual fields listed separately</li>
+        <li>If you see 14 separate fields (name, email, phone, business, question_1_business_type, etc.), the integration is working</li>
+        <li>If you only see "questions" as one field, there's still an issue with the form detection</li>
+    </ol>
+</body>
+</html>

@@ -127,15 +127,34 @@ export default function Quiz() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
-  // Handle contact form submission - let Netlify handle it natively
-  const handleContactSubmit = (e) => {
-    // Let the form submit naturally to Netlify
+  // Handle contact form submission
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    // After a brief delay, show results (form will submit in background)
-    setTimeout(() => {
-      setShowResults(true);
-      setShowContactForm(false);
-    }, 1000);
+
+    try {
+      // Create form data with all the hidden fields
+      const formData = new FormData(e.target);
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        setShowResults(true);
+        setShowContactForm(false);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
@@ -298,7 +317,6 @@ export default function Quiz() {
               name="quiz-contact"
               method="POST"
               netlify
-              action="/Quiz#results"
               onSubmit={handleContactSubmit}
               className="space-y-6"
             >

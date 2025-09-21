@@ -135,11 +135,26 @@ export default function Quiz() {
     try {
       const formData = new FormData();
       formData.append('form-name', 'quiz-contact');
+      
+      // Contact information
       formData.append('name', leadInfo.name);
       formData.append('email', leadInfo.email);
       formData.append('phone', leadInfo.phone);
       formData.append('business', leadInfo.business);
-      formData.append('quiz-answers', Object.entries(answers).map(([q, a]) => `Q${q}: ${Array.isArray(a) ? a.join(', ') : a}`).join('\n'));
+      
+      // Individual quiz questions for Zapier/Google Sheets
+      formData.append('question_1_business_type', answers[1] || '');
+      formData.append('question_2_monthly_customers', answers[2] || '');
+      formData.append('question_3_biggest_challenge', answers[3] || '');
+      formData.append('question_4_current_marketing', Array.isArray(answers[4]) ? answers[4].join(', ') : (answers[4] || ''));
+      formData.append('question_5_marketing_budget', answers[5] || '');
+      formData.append('question_6_primary_goal', answers[6] || '');
+      formData.append('question_7_contact_preference', answers[7] || '');
+      
+      // Additional metadata for analysis
+      formData.append('quiz_completion_date', new Date().toISOString());
+      formData.append('growth_score', getResults().score);
+      formData.append('potential_increase', getResults().potentialIncrease);
       
       // Submit to Netlify
       const response = await fetch('/', {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Individual Fields</title>
+</head>
+<body>
+    <h1>Test Individual Quiz Fields</h1>
+    
+    <!-- Test Form with Individual Fields -->
+    <form name="quiz-test-individual" method="POST" netlify>
+        <input type="hidden" name="form-name" value="quiz-test-individual" />
+        
+        <h3>Contact Info:</h3>
+        <p>Name: <input name="contact_name" value="Test User" required /></p>
+        <p>Email: <input name="contact_email" value="test@example.com" type="email" required /></p>
+        <p>Phone: <input name="contact_phone" value="555-1234" required /></p>
+        <p>Business: <input name="contact_business" value="Test Business" /></p>
+        
+        <h3>Quiz Questions (Each as separate field):</h3>
+        <p>Q1: <input name="q1_business_type" value="Medical Practice" /></p>
+        <p>Q2: <input name="q2_customers" value="26-50 customers" /></p>
+        <p>Q3: <input name="q3_challenge" value="Low online visibility" /></p>
+        <p>Q4: <input name="q4_marketing" value="Google Ads, SEO" /></p>
+        <p>Q5: <input name="q5_budget" value="$3,001 - $5,000" /></p>
+        <p>Q6: <input name="q6_goal" value="Increase revenue by 25-50%" /></p>
+        <p>Q7: <input name="q7_contact_pref" value="Email me the detailed report" /></p>
+        
+        <h3>Metadata:</h3>
+        <p>Date: <input name="completion_date" value="2024-01-15T10:30:00Z" /></p>
+        <p>Score: <input name="score" value="88" /></p>
+        <p>Increase: <input name="increase_potential" value="200-300%" /></p>
+        
+        <br><br>
+        <button type="submit">Submit Test Form</button>
+    </form>
+    
+    <hr>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Submit this form</li>
+        <li>Go to Netlify Forms dashboard</li>
+        <li>Look for form named "quiz-test-individual"</li>
+        <li>Check if you see 14 separate fields instead of combined data</li>
+        <li>If this works, we know the issue is with the dynamic field creation</li>
+        <li>If this doesn't work, there's a deeper Netlify configuration issue</li>
+    </ol>
+    
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; }
+        input { margin: 5px; padding: 5px; }
+        h3 { color: #333; margin-top: 30px; }
+        button { background: black; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</body>
+</html>

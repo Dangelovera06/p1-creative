@@ -128,48 +128,59 @@ export default function Quiz() {
   const [isComplete, setIsComplete] = useState(false);
 
   // Handle contact form submission
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Add all the quiz data as hidden inputs to the form
-    const form = e.target;
-    
-    // Helper function to add hidden input
-    const addHiddenInput = (name, value) => {
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = name;
-      input.value = value || '';
-      form.appendChild(input);
-    };
-    
-    // Add required form-name field
-    addHiddenInput('form-name', 'quiz-contact');
-    
-    // Add individual quiz questions
-    addHiddenInput('question_1_business_type', answers[1]);
-    addHiddenInput('question_2_monthly_customers', answers[2]);
-    addHiddenInput('question_3_biggest_challenge', answers[3]);
-    addHiddenInput('question_4_current_marketing', Array.isArray(answers[4]) ? answers[4].join(', ') : answers[4]);
-    addHiddenInput('question_5_marketing_budget', answers[5]);
-    addHiddenInput('question_6_primary_goal', answers[6]);
-    addHiddenInput('question_7_contact_preference', answers[7]);
-    
-    // Add metadata
-    addHiddenInput('quiz_completion_date', new Date().toISOString());
-    addHiddenInput('growth_score', getResults().score);
-    addHiddenInput('potential_increase', getResults().potentialIncrease);
-    
-    // Now submit the form naturally
-    form.submit();
-    
-    // Show results after a short delay
-    setTimeout(() => {
-      setShowResults(true);
-      setShowContactForm(false);
+    try {
+      // Prepare the data for submission
+      const submissionData = {
+        name: leadInfo.name,
+        email: leadInfo.email,
+        phone: leadInfo.phone,
+        business: leadInfo.business,
+        question_1_business_type: answers[1] || '',
+        question_2_monthly_customers: answers[2] || '',
+        question_3_biggest_challenge: answers[3] || '',
+        question_4_current_marketing: Array.isArray(answers[4]) ? answers[4].join(', ') : (answers[4] || ''),
+        question_5_marketing_budget: answers[5] || '',
+        question_6_primary_goal: answers[6] || '',
+        question_7_contact_preference: answers[7] || '',
+        quiz_completion_date: new Date().toISOString(),
+        growth_score: getResults().score,
+        potential_increase: getResults().potentialIncrease
+      };
+
+      // Submit to both Netlify form and our webhook
+      const formData = new URLSearchParams(submissionData);
+      
+      // Submit to Netlify form
+      const netlifyResponse = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `form-name=quiz-contact&${formData.toString()}`
+      });
+      
+      // Submit to our webhook for proper field separation
+      const webhookResponse = await fetch('/.netlify/functions/quiz-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
+      });
+      
+      if (netlifyResponse.ok || webhookResponse.ok) {
+        setShowResults(true);
+        setShowContactForm(false);
+      } else {
+        throw new Error('Submission failed');
+      }
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;

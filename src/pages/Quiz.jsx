@@ -127,54 +127,15 @@ export default function Quiz() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
-  // Handle contact form submission
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
+  // Handle contact form submission - let Netlify handle it natively
+  const handleContactSubmit = (e) => {
+    // Let the form submit naturally to Netlify
     setIsSubmitting(true);
-
-    try {
-      const formData = new FormData();
-      formData.append('form-name', 'quiz-contact');
-      
-      // Contact information
-      formData.append('name', leadInfo.name);
-      formData.append('email', leadInfo.email);
-      formData.append('phone', leadInfo.phone);
-      formData.append('business', leadInfo.business);
-      
-      // Individual quiz questions for Zapier/Google Sheets
-      formData.append('question_1_business_type', answers[1] || '');
-      formData.append('question_2_monthly_customers', answers[2] || '');
-      formData.append('question_3_biggest_challenge', answers[3] || '');
-      formData.append('question_4_current_marketing', Array.isArray(answers[4]) ? answers[4].join(', ') : (answers[4] || ''));
-      formData.append('question_5_marketing_budget', answers[5] || '');
-      formData.append('question_6_primary_goal', answers[6] || '');
-      formData.append('question_7_contact_preference', answers[7] || '');
-      
-      // Additional metadata for analysis
-      formData.append('quiz_completion_date', new Date().toISOString());
-      formData.append('growth_score', getResults().score);
-      formData.append('potential_increase', getResults().potentialIncrease);
-      
-      // Submit to Netlify
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      });
-
-      if (response.ok) {
-        setShowResults(true);
-        setShowContactForm(false);
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error submitting the form. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // After a brief delay, show results (form will submit in background)
+    setTimeout(() => {
+      setShowResults(true);
+      setShowContactForm(false);
+    }, 1000);
   };
 
   const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
@@ -337,9 +298,21 @@ export default function Quiz() {
               name="quiz-contact"
               method="POST"
               netlify
+              action="/Quiz#results"
               onSubmit={handleContactSubmit}
               className="space-y-6"
             >
+              {/* Hidden fields for individual quiz questions */}
+              <input type="hidden" name="question_1_business_type" value={answers[1] || ''} />
+              <input type="hidden" name="question_2_monthly_customers" value={answers[2] || ''} />
+              <input type="hidden" name="question_3_biggest_challenge" value={answers[3] || ''} />
+              <input type="hidden" name="question_4_current_marketing" value={Array.isArray(answers[4]) ? answers[4].join(', ') : (answers[4] || '')} />
+              <input type="hidden" name="question_5_marketing_budget" value={answers[5] || ''} />
+              <input type="hidden" name="question_6_primary_goal" value={answers[6] || ''} />
+              <input type="hidden" name="question_7_contact_preference" value={answers[7] || ''} />
+              <input type="hidden" name="quiz_completion_date" value={new Date().toISOString()} />
+              <input type="hidden" name="growth_score" value={getResults().score} />
+              <input type="hidden" name="potential_increase" value={getResults().potentialIncrease} />
               
               <div>
                 <label className="block text-sm font-medium text-black mb-3">Your Name *</label>

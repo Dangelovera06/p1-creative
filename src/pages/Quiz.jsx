@@ -128,39 +128,16 @@ export default function Quiz() {
   const [isComplete, setIsComplete] = useState(false);
 
   // Handle contact form submission
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
+  const handleContactSubmit = (e) => {
+    // Don't prevent default - let Netlify handle the form naturally
     setIsSubmitting(true);
-
-    try {
-      // Create form data with all the hidden fields
-      const formData = new FormData(e.target);
-      
-      // Debug: Log what we're sending
-      console.log('Form data being sent:');
-      for (let [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
-      
-      // Submit to Netlify
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      });
-
-      if (response.ok) {
-        setShowResults(true);
-        setShowContactForm(false);
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error submitting the form. Please try again.');
-    } finally {
+    
+    // Show results after a short delay (form will submit in background)
+    setTimeout(() => {
+      setShowResults(true);
+      setShowContactForm(false);
       setIsSubmitting(false);
-    }
+    }, 2000);
   };
 
   const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
@@ -326,6 +303,9 @@ export default function Quiz() {
               onSubmit={handleContactSubmit}
               className="space-y-6"
             >
+              {/* Required Netlify form field */}
+              <input type="hidden" name="form-name" value="quiz-contact" />
+              
               {/* Hidden fields for individual quiz questions */}
               <input type="hidden" name="question_1_business_type" value={answers[1] || ''} />
               <input type="hidden" name="question_2_monthly_customers" value={answers[2] || ''} />

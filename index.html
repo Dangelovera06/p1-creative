@@ -22,10 +22,6 @@
       fbq('init', '929929442368103');
       fbq('track', 'PageView');
     </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=929929442368103&ev=PageView&noscript=1" />
-    </noscript>
     <!-- End Facebook Pixel Code -->
     <meta
       name="description"
@@ -46,6 +42,13 @@
     <meta name="twitter:image" content="/og.jpg" />
   </head>
   <body>
+    <!-- Facebook Pixel noscript -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=929929442368103&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel noscript -->
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

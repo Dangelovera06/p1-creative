@@ -16,6 +16,13 @@ import {
   Calendar
 } from "lucide-react";
 
+// Facebook Pixel tracking functions
+const trackFacebookEvent = (eventName, parameters = {}) => {
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', eventName, parameters);
+  }
+};
+
 const quizQuestions = [
   {
     id: 1,
@@ -169,6 +176,20 @@ export default function Quiz() {
       });
       
       if (netlifyResponse.ok || webhookResponse.ok) {
+        // Track successful lead capture
+        trackFacebookEvent('Lead', {
+          content_name: 'Business Growth Quiz Lead',
+          content_category: 'Lead Generation',
+          value: 50, // Estimated lead value
+          currency: 'USD'
+        });
+        
+        // Track custom conversion event
+        trackFacebookEvent('Contact', {
+          content_name: 'Quiz Contact Form',
+          content_category: 'Lead Generation'
+        });
+        
         setShowResults(true);
         setShowContactForm(false);
       } else {
@@ -210,6 +231,11 @@ export default function Quiz() {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
+      // Track quiz completion
+      trackFacebookEvent('CompleteRegistration', {
+        content_name: 'Business Growth Quiz',
+        content_category: 'Lead Generation'
+      });
       setShowContactForm(true);
     }
   };

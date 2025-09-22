@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Star } from "lucide-react";
 
+// Facebook Pixel tracking function
+const trackFacebookEvent = (eventName, parameters = {}) => {
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', eventName, parameters);
+  }
+};
+
 export default function Hero() {
 
   return (
@@ -41,7 +48,14 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                onClick={() => window.location.href = '/Quiz'}
+                onClick={() => {
+                  // Track CTA click
+                  trackFacebookEvent('InitiateCheckout', {
+                    content_name: 'Start Growing Today CTA',
+                    content_category: 'Lead Generation'
+                  });
+                  window.location.href = '/Quiz';
+                }}
                 size="lg" 
                 className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full text-lg font-semibold"
               >

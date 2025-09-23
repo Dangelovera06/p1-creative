@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Pixel Test</title>
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '614618117913023');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Facebook Pixel Code -->
+</head>
+<body>
+    <h1>Facebook Pixel Test Page</h1>
+    <p>This page tests if your Facebook Pixel is working.</p>
+    
+    <button onclick="testCustomEvent()">Test Custom Event</button>
+    <button onclick="testLeadEvent()">Test Lead Event</button>
+    
+    <div id="status"></div>
+    
+    <script>
+        // Test functions
+        function testCustomEvent() {
+            if (typeof window.fbq !== 'undefined') {
+                window.fbq('track', 'CustomEvent', {
+                    content_name: 'Test Custom Event',
+                    content_category: 'Test'
+                });
+                document.getElementById('status').innerHTML = '<p style="color: green;">Custom Event sent!</p>';
+            } else {
+                document.getElementById('status').innerHTML = '<p style="color: red;">Facebook Pixel not loaded!</p>';
+            }
+        }
+        
+        function testLeadEvent() {
+            if (typeof window.fbq !== 'undefined') {
+                window.fbq('track', 'Lead', {
+                    content_name: 'Test Lead',
+                    content_category: 'Test',
+                    value: 50,
+                    currency: 'USD'
+                });
+                document.getElementById('status').innerHTML = '<p style="color: green;">Lead Event sent!</p>';
+            } else {
+                document.getElementById('status').innerHTML = '<p style="color: red;">Facebook Pixel not loaded!</p>';
+            }
+        }
+        
+        // Check if pixel loaded
+        window.addEventListener('load', function() {
+            if (typeof window.fbq !== 'undefined') {
+                document.getElementById('status').innerHTML = '<p style="color: green;">✅ Facebook Pixel loaded successfully!</p>';
+            } else {
+                document.getElementById('status').innerHTML = '<p style="color: red;">❌ Facebook Pixel failed to load!</p>';
+            }
+        });
+    </script>
+    
+    <!-- Facebook Pixel noscript -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=614618117913023&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel noscript -->
+</body>
+</html>

@@ -1,35 +1,35 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight, Gift } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const sprintFeatures = [
   {
-    title: "10 Cinematic Short-Form Videos/Month",
-    description: "Shot + edited with proven scripts that turn scrolls into calls."
+    title: "10 Cinematic Short-Form Videos",
+    value: "$5,000"
   },
   {
     title: "High-Converting Ads Management",
-    description: "Built from Day 1 to generate qualified leads (not likes), tracked weekly."
+    value: "$3,500"
   },
   {
     title: "Custom-Built Landing Page Funnel",
-    description: "Branded, optimized for conversion, and integrated with backend tools."
+    value: "$4,000"
   },
   {
-    title: "Automated AI Caller (Inbound + Outbound)",
-    description: "Instantly answers inquiries, follows up leads, and books appointments for you."
+    title: "Automated AI Caller System",
+    value: "$2,500"
   },
   {
     title: "Appointment Pre-Qual & Booking System",
-    description: "Every lead is filtered and booked using custom scripts, SOPs, and AI tools."
+    value: "$2,000"
   },
   {
-    title: "Custom SOP Guide for Front Desk & Follow-Up",
-    description: "Your team knows exactly how to nurture and convert — with zero confusion."
+    title: "Custom SOP Guide",
+    value: "$1,500"
   },
   {
     title: "P1 Concierge Support",
-    description: "Slack access + biweekly strategy calls + weekly KPI reports."
+    value: "$2,500"
   }
 ];
 
@@ -64,30 +64,56 @@ export default function WhatYouGet() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mb-12 md:mb-16"
+          className="mb-12 md:mb-16 max-w-3xl mx-auto"
         >
-          <div className="p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/10">
-            <div className="grid gap-4 md:gap-6">
+          <div className="p-8 md:p-12 rounded-2xl bg-white/[0.03] border border-white/10">
+            <div className="space-y-4">
               {sprintFeatures.map((feature, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="flex items-start gap-4 p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#006eff]/30 transition-all"
+                  className="flex items-center justify-between gap-4"
                 >
-                  <CheckCircle2 className="w-6 h-6 text-[#006eff] flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-lg md:text-xl text-white font-bold leading-relaxed mb-2">
-                      {feature.title}
-                    </p>
-                    <p className="text-base md:text-lg text-white/70 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
+                  <span className="text-base md:text-lg text-white font-medium">
+                    {feature.title}
+                  </span>
+                  <div className="flex-1 border-b-2 border-dotted border-white/20 mx-3"></div>
+                  <span className="text-base md:text-lg text-[#006eff] font-bold whitespace-nowrap">
+                    {feature.value}
+                  </span>
                 </motion.div>
               ))}
+              
+              {/* Total Value Line */}
+              <div className="pt-6 mt-6 border-t-2 border-white/20">
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <span className="text-lg md:text-xl text-white/80 font-semibold">
+                    Total Value
+                  </span>
+                  <div className="flex-1 border-b-2 border-dotted border-white/30 mx-3"></div>
+                  <span className="text-lg md:text-xl text-white/80 font-bold line-through whitespace-nowrap">
+                    $21,000/mo
+                  </span>
+                </div>
+                
+                {/* Actual Price */}
+                <div className="flex items-center justify-between gap-4 p-4 rounded-xl bg-gradient-to-r from-[#006eff]/20 to-[#0080ff]/20 border-2 border-[#006eff]">
+                  <span className="text-xl md:text-2xl text-white font-bold">
+                    Your Investment Today
+                  </span>
+                  <div className="flex-1 border-b-2 border-dotted border-white/30 mx-3"></div>
+                  <span className="text-2xl md:text-4xl text-[#006eff] font-black whitespace-nowrap">
+                    $4,997/mo
+                  </span>
+                </div>
+                
+                <p className="text-center text-sm md:text-base text-white/60 mt-4">
+                  Save $16,003/month • Limited time offer
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>

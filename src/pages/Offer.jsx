@@ -16,7 +16,7 @@ export default function Offer() {
     <div className="min-h-screen overflow-x-hidden w-full bg-neutral-950">
       {/* Floating Navigation Header - Visible Throughout Site */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 gap-4">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 gap-4 relative">
           {/* Logo and Name - Left */}
           <div className="flex items-center gap-1.5">
             <img 
@@ -26,8 +26,8 @@ export default function Offer() {
             />
           </div>
 
-          {/* Offer Text - Center */}
-          <div className="hidden md:block text-xs sm:text-sm font-bold tracking-widest text-white/60 uppercase">
+          {/* Offer Text - Center (Absolutely Centered) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block text-xs sm:text-sm font-bold tracking-widest text-white/60 uppercase whitespace-nowrap">
             Limited Spots Available
           </div>
 

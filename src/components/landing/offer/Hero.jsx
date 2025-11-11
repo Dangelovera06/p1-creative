@@ -24,7 +24,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl font-light px-2 text-white/80">
-              Get a Complete Lead-Generation System That Fills Your Calendar With Qualified Appointments Every Week
+              Get Qualified Appointments on Autopilot
             </p>
 
             <p className="text-base sm:text-lg md:text-xl text-white/90 pt-2 px-2 font-medium">

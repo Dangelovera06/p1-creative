@@ -42,9 +42,9 @@ export default function Offer() {
               }
               window.open('#', '_blank');
             }}
-            className="px-6 py-2 sm:py-3 bg-white text-black font-light text-sm sm:text-base tracking-wider uppercase rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="px-4 py-2 bg-white text-black font-light text-xs sm:text-sm tracking-wider uppercase rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
           >
-            APPLY NOW
+            APPLY
           </button>
         </div>
       </header>

@@ -1,6 +1,7 @@
 
 import React from "react";
-import { MapPin, Phone, Mail, Heart } from "lucide-react";
+import { MapPin, Phone, Mail, Heart, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -55,7 +56,26 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Special Offer CTA */}
         <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="text-center mb-8">
+            <Link
+              to="/offer"
+              className="inline-block relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+              <button className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:shadow-[0_0_30px_rgba(37,99,235,0.8)] transform hover:scale-105">
+                <span className="flex items-center gap-2">
+                  <span>Get Our Special Offer</span>
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </button>
+            </Link>
+            <p className="text-gray-400 text-sm mt-3">
+              Limited spots available • Complete lead generation system
+            </p>
+          </div>
+          
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm">
               © 2024 P1 Creative. All rights reserved.

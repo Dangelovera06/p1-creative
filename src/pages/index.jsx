@@ -2,6 +2,7 @@ import Layout from "./Layout.jsx";
 
 import Home from "./Home";
 import Quiz from "./Quiz";
+import Offer from "./Offer";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ const PAGES = {
     
     Home: Home,
     Quiz: Quiz,
+    Offer: Offer,
     
 }
 
@@ -39,6 +41,7 @@ function PagesContent() {
                 
                 <Route path="/Home" element={<Home />} />
                 <Route path="/Quiz" element={<Quiz />} />
+                <Route path="/Offer" element={<Offer />} />
                 
             </Routes>
         </Layout>

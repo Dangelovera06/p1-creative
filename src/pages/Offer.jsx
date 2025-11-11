@@ -42,7 +42,7 @@ export default function Offer() {
               }
               window.open('#', '_blank');
             }}
-            className="px-4 py-2 bg-white text-black font-light text-xs sm:text-sm tracking-wider uppercase rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+            className="px-4 py-2 bg-gradient-to-r from-[#006eff] to-[#0080ff] text-white font-light text-xs sm:text-sm tracking-wider uppercase rounded-lg hover:from-[#0080ff] hover:to-[#006eff] transition-all duration-300 shadow-[0_0_15px_rgba(0,110,255,0.5)] hover:shadow-[0_0_25px_rgba(0,110,255,0.8)] whitespace-nowrap"
           >
             APPLY
           </button>

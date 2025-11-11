@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 const sprintFeatures = [
   {
     title: "10 Cinematic Short-Form Videos",
-    value: "$5,000"
+    value: "$3,000"
   },
   {
     title: "High-Converting Ads Management",
@@ -13,7 +13,7 @@ const sprintFeatures = [
   },
   {
     title: "Custom-Built Landing Page Funnel",
-    value: "$4,000"
+    value: "$2,000"
   },
   {
     title: "Automated AI Caller System",
@@ -29,7 +29,7 @@ const sprintFeatures = [
   },
   {
     title: "P1 Concierge Support",
-    value: "$2,500"
+    value: "$997"
   }
 ];
 
@@ -81,7 +81,7 @@ export default function WhatYouGet() {
                     {feature.title}
                   </span>
                   <div className="flex-1 border-b-2 border-dotted border-white/20 mx-3"></div>
-                  <span className="text-base md:text-lg text-[#006eff] font-bold whitespace-nowrap">
+                  <span className="text-base md:text-lg text-[#006eff] font-bold whitespace-nowrap line-through decoration-2">
                     {feature.value}
                   </span>
                 </motion.div>
@@ -94,8 +94,8 @@ export default function WhatYouGet() {
                     Total Value
                   </span>
                   <div className="flex-1 border-b-2 border-dotted border-white/30 mx-3"></div>
-                  <span className="text-lg md:text-xl text-white/80 font-bold line-through whitespace-nowrap">
-                    $21,000/mo
+                  <span className="text-lg md:text-xl text-white/80 font-bold line-through decoration-2 whitespace-nowrap">
+                    $15,497/mo
                   </span>
                 </div>
                 

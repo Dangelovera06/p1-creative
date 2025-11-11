@@ -54,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col items-center gap-4 md:gap-5 px-4"
           >
-            <RainbowButton
+            <button
               onClick={() => {
                 if (window.fbq) {
                   window.fbq('track', 'Lead', {
@@ -64,11 +64,11 @@ export default function Hero() {
                 }
                 window.open('#', '_blank');
               }}
-              className="text-base sm:text-lg font-bold w-full sm:w-auto"
-              style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
+              className="px-8 py-4 bg-white text-black font-light text-base sm:text-lg tracking-wider uppercase rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105 w-full sm:w-auto"
+              style={{ maxWidth: '397.2px', minWidth: '280px' }}
             >
-              Apply Today
-            </RainbowButton>
+              APPLY TODAY
+            </button>
           </motion.div>
         </div>
       </div>

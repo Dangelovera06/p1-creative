@@ -32,7 +32,7 @@ export default function Offer() {
           </div>
 
           {/* CTA Button - Right */}
-          <RainbowButton
+          <button
             onClick={(e) => {
               if (window.fbq) {
                 window.fbq('track', 'Lead', {
@@ -42,10 +42,10 @@ export default function Offer() {
               }
               window.open('#', '_blank');
             }}
-            className="text-sm sm:text-base"
+            className="px-6 py-2 sm:py-3 bg-white text-black font-light text-sm sm:text-base tracking-wider uppercase rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Apply Now
-          </RainbowButton>
+            APPLY NOW
+          </button>
         </div>
       </header>
 

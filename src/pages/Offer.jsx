@@ -19,7 +19,11 @@ export default function Offer() {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 gap-4">
           {/* Logo and Name - Left */}
           <div className="flex items-center gap-1.5">
-            <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-wide text-white">P<span className="text-[#006eff]">1</span> Creative</span>
+            <img 
+              src="/p1 white.png" 
+              alt="P1 Creative Logo" 
+              className="h-8 sm:h-10 md:h-12 w-auto"
+            />
           </div>
 
           {/* Offer Text - Center */}

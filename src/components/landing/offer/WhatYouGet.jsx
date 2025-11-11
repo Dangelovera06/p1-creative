@@ -50,10 +50,10 @@ export default function WhatYouGet() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 px-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 md:mb-8 px-4 text-white">
             Everything You Need to Dominate Your Market
           </h2>
-          <p className="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto px-4">
             A complete done-for-you system that generates qualified leads while you focus on closing deals
           </p>
         </motion.div>
@@ -66,8 +66,8 @@ export default function WhatYouGet() {
           viewport={{ once: true }}
           className="mb-12 md:mb-16 max-w-3xl mx-auto"
         >
-          <div className="p-8 md:p-12 rounded-2xl bg-white/[0.03] border border-white/10">
-            <div className="space-y-4">
+          <div className="p-4 sm:p-6 md:p-12 rounded-2xl bg-white/[0.03] border border-white/10">
+            <div className="space-y-3 sm:space-y-4">
               {sprintFeatures.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -75,43 +75,43 @@ export default function WhatYouGet() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="flex items-center justify-between gap-4"
+                  className="flex items-center justify-between gap-2 sm:gap-4"
                 >
-                  <span className="text-base md:text-lg text-white font-medium">
+                  <span className="text-sm sm:text-base md:text-lg text-white font-medium flex-shrink min-w-0">
                     {feature.title}
                   </span>
-                  <div className="flex-1 border-b-2 border-dotted border-white/20 mx-3"></div>
-                  <span className="text-base md:text-lg text-[#006eff] font-bold whitespace-nowrap line-through decoration-2">
+                  <div className="hidden sm:flex flex-1 border-b-2 border-dotted border-white/20 mx-2 md:mx-3 min-w-[20px]"></div>
+                  <span className="text-sm sm:text-base md:text-lg text-[#006eff] font-bold whitespace-nowrap line-through decoration-2 flex-shrink-0">
                     {feature.value}
                   </span>
                 </motion.div>
               ))}
               
               {/* Total Value Line */}
-              <div className="pt-6 mt-6 border-t-2 border-white/20">
-                <div className="flex items-center justify-between gap-4 mb-3">
-                  <span className="text-lg md:text-xl text-white/80 font-semibold">
+              <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t-2 border-white/20">
+                <div className="flex items-center justify-between gap-2 sm:gap-4 mb-3">
+                  <span className="text-base sm:text-lg md:text-xl text-white/80 font-semibold">
                     Total Value
                   </span>
-                  <div className="flex-1 border-b-2 border-dotted border-white/30 mx-3"></div>
-                  <span className="text-lg md:text-xl text-white/80 font-bold line-through decoration-2 whitespace-nowrap">
+                  <div className="hidden sm:flex flex-1 border-b-2 border-dotted border-white/30 mx-2 md:mx-3"></div>
+                  <span className="text-base sm:text-lg md:text-xl text-white/80 font-bold line-through decoration-2 whitespace-nowrap">
                     $15,497/mo
                   </span>
                 </div>
                 
                 {/* Actual Price */}
-                <div className="flex items-center justify-between gap-4 p-4 rounded-xl bg-gradient-to-r from-[#006eff]/20 to-[#0080ff]/20 border-2 border-[#006eff]">
-                  <span className="text-xl md:text-2xl text-white font-bold">
-                    Your Investment Today
+                <div className="flex items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gradient-to-r from-[#006eff]/20 to-[#0080ff]/20 border-2 border-[#006eff]">
+                  <span className="text-base sm:text-xl md:text-2xl text-white font-bold">
+                    Your Investment
                   </span>
-                  <div className="flex-1 border-b-2 border-dotted border-white/30 mx-3"></div>
-                  <span className="text-2xl md:text-4xl text-[#006eff] font-black whitespace-nowrap">
+                  <div className="hidden sm:flex flex-1 border-b-2 border-dotted border-white/30 mx-2 md:mx-3"></div>
+                  <span className="text-xl sm:text-2xl md:text-4xl text-[#006eff] font-black whitespace-nowrap">
                     $4,997/mo
                   </span>
                 </div>
                 
-                <p className="text-center text-sm md:text-base text-white/60 mt-4">
-                  Save $16,003/month • Limited time offer
+                <p className="text-center text-xs sm:text-sm md:text-base text-white/60 mt-3 sm:mt-4">
+                  Save $10,500/month • Limited time
                 </p>
               </div>
             </div>

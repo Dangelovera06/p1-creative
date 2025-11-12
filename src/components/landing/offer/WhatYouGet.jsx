@@ -10,7 +10,7 @@ const sprintFeatures = [
   "SOPs + Slack + Weekly Optimization"
 ];
 
-export default function WhatYouGet() {
+export default function WhatYouGet({ onCTAClick }) {
   return (
     <section className="py-24 md:py-32 bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,10 +69,8 @@ export default function WhatYouGet() {
           viewport={{ once: true }}
           className="text-center mt-12 md:mt-16"
         >
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={(e) => onCTAClick(e, 'WhatYouGet')}
             className="relative inline-flex items-center justify-center gap-2 rounded-xl text-white font-bold transition-all hover:scale-105 bg-gradient-to-b from-[#0080ff] via-[#006eff] to-[#0050cc] shadow-[0_0_20px_rgba(0,110,255,0.5),0_0_40px_rgba(0,110,255,0.3),0_0_60px_rgba(0,110,255,0.2)] text-base sm:text-lg w-full sm:w-auto overflow-hidden"
             style={{ maxWidth: '450px', height: '70px', minWidth: '300px' }}
           >
@@ -85,7 +83,7 @@ export default function WhatYouGet() {
             <span className="relative z-10 flex flex-col items-center justify-center gap-1">
               <span className="font-black text-lg sm:text-xl">Claim Your Spot</span>
             </span>
-          </a>
+          </button>
           <p className="text-white/60 text-sm sm:text-base mt-4 px-4">
             We only onboard 3 clinics/month. Book a call to see if you qualify.
           </p>

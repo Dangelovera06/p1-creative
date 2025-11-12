@@ -61,12 +61,12 @@ export default function Offer() {
       <SocialProof />
       <CaseStudy />
       <Testimonials />
-      <WhatYouGet />
-      <HardTruth />
+      <WhatYouGet onCTAClick={handleCTAClick} />
+      <HardTruth onCTAClick={handleCTAClick} />
       <WhatHappens />
       <EmotionalCore />
-      <Blueprint />
-      <FinalClose />
+      <Blueprint onCTAClick={handleCTAClick} />
+      <FinalClose onCTAClick={handleCTAClick} />
 
       {/* Footer */}
       <footer className="py-8 sm:py-12 w-full border-t border-white/10 bg-neutral-950">

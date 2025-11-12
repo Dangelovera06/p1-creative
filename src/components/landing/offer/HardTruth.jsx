@@ -26,7 +26,7 @@ const benefits = [
   }
 ];
 
-export default function HardTruth() {
+export default function HardTruth({ onCTAClick }) {
   return (
     <section className="py-16 md:py-24 relative bg-neutral-950">
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
@@ -103,15 +103,7 @@ export default function HardTruth() {
             className="text-center px-4"
           >
             <RainbowButton
-              onClick={() => {
-                if (window.fbq) {
-                  window.fbq('track', 'Lead', {
-                    content_name: 'Benefits Section CTA Click',
-                    content_category: 'CTA Button'
-                  });
-                }
-                window.open('#', '_blank');
-              }}
+              onClick={(e) => onCTAClick(e, 'HardTruth')}
               className="text-base sm:text-lg font-bold w-full sm:w-auto"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >

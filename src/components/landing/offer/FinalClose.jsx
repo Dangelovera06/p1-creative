@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Smartphone } from "lucide-react";
 
-export default function FinalClose() {
+export default function FinalClose({ onCTAClick }) {
   return (
     <section className="py-24 md:py-32 relative overflow-hidden bg-neutral-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -40,10 +40,8 @@ export default function FinalClose() {
           </div>
 
           <div className="mb-6 md:mb-8 px-4">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={(e) => onCTAClick(e, 'FinalClose')}
               className="relative inline-flex items-center justify-center gap-2 rounded-xl text-white font-bold transition-all hover:scale-105 bg-gradient-to-b from-[#0080ff] via-[#006eff] to-[#0050cc] shadow-[0_0_20px_rgba(0,110,255,0.5),0_0_40px_rgba(0,110,255,0.3),0_0_60px_rgba(0,110,255,0.2)] text-base sm:text-lg w-full sm:w-auto overflow-hidden"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >
@@ -57,7 +55,7 @@ export default function FinalClose() {
                 <span>Book Your Free Call</span>
                 <ArrowRight className="w-5 h-5 flex-shrink-0" />
               </span>
-            </a>
+            </button>
           </div>
 
           <p className="text-xs sm:text-sm px-4 text-white/50">

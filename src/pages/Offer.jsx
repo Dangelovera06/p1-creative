@@ -9,6 +9,7 @@ import Blueprint from "../components/landing/offer/Blueprint";
 import FinalClose from "../components/landing/offer/FinalClose";
 import Testimonials from "../components/landing/offer/Testimonials";
 import WhatYouGet from "../components/landing/offer/WhatYouGet";
+import SocialProof from "../components/landing/offer/SocialProof";
 
 export default function Offer() {
 
@@ -50,6 +51,7 @@ export default function Offer() {
       </header>
 
       <Hero />
+      <SocialProof />
       <WhatYouGet />
       <Testimonials />
       <HardTruth />

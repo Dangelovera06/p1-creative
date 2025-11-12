@@ -33,10 +33,10 @@ export default function CaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center"
+          className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
         >
           {/* Image - Medium Size */}
-          <div className="relative w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[450px] rounded-2xl overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20 mb-8">
+          <div className="relative w-64 h-80 md:w-80 md:h-96 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20">
             <img 
               src="/stluciedentist-68.jpg" 
               alt="Dr. Hans"
@@ -45,7 +45,7 @@ export default function CaseStudy() {
           </div>
 
           {/* Results */}
-          <div className="space-y-6 max-w-3xl w-full">
+          <div className="space-y-6 flex-1">
             <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
                 After Implementing All Systems:

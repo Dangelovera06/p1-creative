@@ -65,8 +65,12 @@ export default function Offer() {
       {/* Footer */}
       <footer className="py-8 sm:py-12 w-full border-t border-white/10 bg-neutral-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-xl sm:text-2xl mb-3 sm:mb-4 font-display font-bold text-white">
-            P<span className="text-[#006eff]">1</span> Creative
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <img 
+              src="/p1 white.png" 
+              alt="P1 Creative Logo" 
+              className="h-10 sm:h-12 w-auto"
+            />
           </div>
           <p className="text-xs sm:text-sm mb-6 sm:mb-8 text-white/60">
             Turning businesses into lead-generating machines

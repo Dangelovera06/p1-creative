@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 
 const steps = [
   {
-    title: "Your Content Starts Converting",
-    description: "We shoot and edit 10 cinematic short-form videos per month with proven scripts that stop scrollers and turn attention into appointments. Your brand becomes impossible to ignore.",
+    title: "Content That Actually Converts",
+    description: "10 cinematic short-form videos monthly with proven scripts that stop scrollers and turn attention into appointments. Every video is built to drive action.",
     image: "/WHAT HAPPENS/1.webp"
   },
   {
-    title: "Your Ads Generate Qualified Leads",
-    description: "We launch and manage high-converting ad campaigns built to generate qualified leads—not vanity metrics. Every dollar is tracked, every lead is filtered, and your calendar starts filling up.",
+    title: "Ads That Generate Qualified Leads",
+    description: "High-converting ad campaigns that generate qualified leads—not vanity metrics. Every dollar tracked, every lead filtered, calendar filling up automatically.",
     image: "/WHAT HAPPENS/2.webp"
   },
   {
-    title: "Your System Runs on Autopilot",
-    description: "With AI-powered callers handling inquiries, automated booking systems pre-qualifying leads, and custom SOPs guiding your team—your business generates appointments while you focus on closing deals.",
+    title: "Appointments Booked While You Sleep",
+    description: "AI-powered callers handle inquiries 24/7. Automated booking pre-qualifies leads. Custom SOPs guide your team. The system generates appointments on autopilot.",
     image: "/WHAT HAPPENS/3.webp"
   }
 ];
@@ -31,9 +31,9 @@ export default function WhatHappens() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            This is What Happens After You Partner With{" "}
+            How the System{" "}
             <span className="bg-gradient-to-r from-[#006eff] via-white to-[#006eff] bg-clip-text text-transparent">
-              P1 Creative
+              Fills Your Calendar
             </span>
           </h2>
         </motion.div>

@@ -19,19 +19,12 @@ export default function EmotionalCore() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-3 mb-8">
-            <Heart className="w-6 h-6 text-[#006eff]" />
-            <span className="text-sm uppercase tracking-wider text-[#006eff]">
-              We Understand
-            </span>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white">
-            You've Built the Business. Now It's Time to Scale with Systems.
+            The Problem Most Clinics Face
           </h2>
 
           <p className="text-lg md:text-xl mb-12 text-white/80">
-            We know the struggle business owners face every day:
+            You're stuck in the same cycle:
           </p>
 
           <div className="space-y-4 mb-12">
@@ -53,7 +46,7 @@ export default function EmotionalCore() {
 
           <div className="p-10 rounded-3xl bg-gradient-to-br from-white/[0.05] to-white/[0.02] border border-white/20">
             <p className="text-xl md:text-2xl font-semibold text-white/90">
-              Your business deserves a marketing system that works as hard as you do — generating leads, following up, and booking qualified appointments while you sleep.
+              This system generates leads, follows up automatically, and books qualified appointments — 24/7, without you lifting a finger.
             </p>
           </div>
         </motion.div>

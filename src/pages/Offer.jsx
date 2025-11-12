@@ -52,8 +52,8 @@ export default function Offer() {
 
       <Hero />
       <SocialProof />
-      <WhatYouGet />
       <Testimonials />
+      <WhatYouGet />
       <HardTruth />
       <WhatHappens />
       <EmotionalCore />

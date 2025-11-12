@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/beams-background";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 
-export default function Hero() {
+export default function Hero({ onCTAClick }) {
 
   return (
     <BeamsBackground intensity="medium">
@@ -49,15 +49,7 @@ export default function Hero() {
             className="flex flex-col items-center gap-4 md:gap-5 px-4"
           >
             <RainbowButton
-              onClick={() => {
-                if (window.fbq) {
-                  window.fbq('track', 'Lead', {
-                    content_name: 'Main Hero CTA Click',
-                    content_category: 'CTA Button'
-                  });
-                }
-                window.open('#', '_blank');
-              }}
+              onClick={(e) => onCTAClick(e, 'Hero')}
               className="text-base sm:text-lg font-bold w-full sm:w-auto"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >

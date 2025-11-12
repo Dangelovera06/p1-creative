@@ -57,7 +57,7 @@ export default function Offer() {
         </div>
       </header>
 
-      <Hero />
+      <Hero onCTAClick={handleCTAClick} />
       <SocialProof />
       <CaseStudy />
       <Testimonials />

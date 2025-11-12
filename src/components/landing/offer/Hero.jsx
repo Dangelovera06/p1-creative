@@ -17,18 +17,15 @@ export default function Hero() {
             className="space-y-6"
           >
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight px-2">
-              Stop Wasting Money on{' '}
+              Let Our System Fill Your Calendar With{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white/90 to-[#0080ff]">
-                Marketing That Doesn't Convert
-              </span>
+                Qualified Appointments
+              </span>{' '}
+              — Every Month, On Autopilot.
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl font-light px-2 text-white/80">
-              Get Qualified Appointments on Autopilot
-            </p>
-
-            <p className="text-base sm:text-lg md:text-xl text-white/90 pt-2 px-2 font-medium">
-              No More Chasing Leads. No More Wasted Ad Spend. No More Missed Opportunities.
+              Content, ads, AI follow-up, and automated booking — fully done for you by our team in 30 days.
             </p>
           </motion.div>
 
@@ -64,7 +61,7 @@ export default function Hero() {
               className="text-base sm:text-lg font-bold w-full sm:w-auto"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >
-              Apply Today
+              Let's Build Your System
             </RainbowButton>
           </motion.div>
         </div>

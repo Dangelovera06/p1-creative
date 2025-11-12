@@ -80,6 +80,20 @@ export default function HardTruth() {
             ))}
           </div>
 
+          {/* Final Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#006eff]/10 to-[#0080ff]/10 border border-[#006eff]/30 mb-12"
+          >
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed text-center">
+              Most clinics stay stuck posting on Instagram, hoping for calls.{' '}
+              <span className="text-[#006eff] font-bold">Our clients have a machine that books them while they sleep.</span>
+            </p>
+          </motion.div>
+
           {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -11,6 +11,7 @@ import Testimonials from "../components/landing/offer/Testimonials";
 import WhatYouGet from "../components/landing/offer/WhatYouGet";
 import SocialProof from "../components/landing/offer/SocialProof";
 import CaseStudy from "../components/landing/offer/CaseStudy";
+import CalendlyEmbed from "../components/landing/offer/CalendlyEmbed";
 
 export default function Offer() {
   const handleCTAClick = (e, location) => {
@@ -62,6 +63,7 @@ export default function Offer() {
       <EmotionalCore />
       <Blueprint onCTAClick={handleCTAClick} />
       <FinalClose onCTAClick={handleCTAClick} />
+      <CalendlyEmbed />
 
       {/* Footer */}
       <footer className="py-8 sm:py-12 w-full border-t border-white/10 bg-neutral-950">

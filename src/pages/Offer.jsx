@@ -10,6 +10,7 @@ import FinalClose from "../components/landing/offer/FinalClose";
 import Testimonials from "../components/landing/offer/Testimonials";
 import WhatYouGet from "../components/landing/offer/WhatYouGet";
 import SocialProof from "../components/landing/offer/SocialProof";
+import CaseStudy from "../components/landing/offer/CaseStudy";
 
 export default function Offer() {
 
@@ -52,6 +53,7 @@ export default function Offer() {
 
       <Hero />
       <SocialProof />
+      <CaseStudy />
       <Testimonials />
       <WhatYouGet />
       <HardTruth />

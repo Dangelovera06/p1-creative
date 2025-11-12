@@ -83,7 +83,7 @@ export default function WhatYouGet() {
               className="pointer-events-none absolute inset-0 translate-x-[-100%] animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"
             />
             <span className="relative z-10 flex flex-col items-center justify-center gap-1">
-              <span className="font-black text-lg sm:text-xl">Apply Now to Claim One of 3 Spots This Month</span>
+              <span className="font-black text-lg sm:text-xl">Claim Your Spot</span>
             </span>
           </a>
           <p className="text-white/60 text-sm sm:text-base mt-4 px-4">

@@ -115,7 +115,7 @@ export default function HardTruth() {
               className="text-base sm:text-lg font-bold w-full sm:w-auto"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >
-              Apply Today
+              Get Started Now
             </RainbowButton>
           </motion.div>
         </motion.div>

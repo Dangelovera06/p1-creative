@@ -61,7 +61,7 @@ export default function Hero() {
               className="text-base sm:text-lg font-bold w-full sm:w-auto"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >
-              Let's Build Your System
+              Book Your Free Call
             </RainbowButton>
           </motion.div>
         </div>

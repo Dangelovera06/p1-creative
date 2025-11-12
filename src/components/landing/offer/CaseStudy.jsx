@@ -35,8 +35,8 @@ export default function CaseStudy() {
           viewport={{ once: true }}
           className="flex flex-col items-center"
         >
-          {/* Image - Small Square */}
-          <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20 mb-8">
+          {/* Image - Medium Size */}
+          <div className="relative w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[450px] rounded-2xl overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20 mb-8">
             <img 
               src="/stluciedentist-68.jpg" 
               alt="Dr. Hans"

@@ -35,14 +35,14 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* Video Section */}
+          {/* Video Section - Smaller */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-8 mb-10 md:mb-12 max-w-6xl mx-auto w-full px-2 overflow-hidden"
+            className="mt-6 mb-8 md:mb-10 max-w-3xl mx-auto w-full px-2 overflow-hidden"
           >
-            <div className="relative w-full overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20 rounded-lg">
+            <div className="relative w-full overflow-hidden border-2 border-[#006eff]/30 shadow-xl shadow-[#006eff]/20 rounded-lg">
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                 <wistia-player 
                   media-id="w4p6cr6l8l" 
@@ -70,27 +70,27 @@ export default function Hero() {
                 }
                 window.open('https://build.fillout.com/editor/6HP2aE8grBus/edit', '_blank');
               }}
-              className="text-base sm:text-lg font-bold w-full sm:w-auto max-w-full"
-              style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}
+              className="text-base sm:text-lg font-bold w-full sm:w-auto"
+              style={{ maxWidth: '320px', height: '56px', minWidth: '280px' }}
             >
               Apply Today
             </RainbowButton>
           </motion.div>
 
-          {/* Book a Call Section */}
+          {/* Book a Call Section - Smaller */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-8 md:mt-12 w-full px-4"
+            className="mt-6 md:mt-8 w-full px-4"
           >
-            <div className="bg-gradient-to-r from-[#006eff]/20 via-white/10 to-[#0080ff]/20 backdrop-blur-md border-2 border-[#006eff]/40 rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl shadow-[#006eff]/30 max-w-2xl mx-auto">
-              <div className="text-center space-y-4 sm:space-y-6">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+            <div className="bg-gradient-to-r from-[#006eff]/20 via-white/10 to-[#0080ff]/20 backdrop-blur-md border-2 border-[#006eff]/40 rounded-xl p-4 sm:p-6 shadow-xl shadow-[#006eff]/30 max-w-xl mx-auto">
+              <div className="text-center space-y-3 sm:space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">
                   Ready to Get Started?
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl text-white/90">
-                  Book a free 30-minute strategy call to discuss how we can transform your business
+                <p className="text-sm sm:text-base text-white/90">
+                  Book a free 30-minute strategy call
                 </p>
                 <button
                   onClick={() => {
@@ -102,12 +102,13 @@ export default function Hero() {
                     }
                     window.open('https://calendly.com/p1creative/30min', '_blank');
                   }}
-                  className="w-full sm:w-auto bg-white text-[#006eff] hover:bg-white/90 font-bold text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full sm:w-auto bg-white text-[#006eff] hover:bg-white/90 font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  style={{ maxWidth: '320px', height: '56px' }}
                 >
-                  📅 Book Your Free Strategy Call
+                  📅 Book Your Free Call
                 </button>
-                <p className="text-sm sm:text-base text-white/70">
-                  No commitment • 30 minutes • See how we can help
+                <p className="text-xs sm:text-sm text-white/70">
+                  No commitment • 30 minutes
                 </p>
               </div>
             </div>

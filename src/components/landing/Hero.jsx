@@ -1,25 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/beams-background";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export default function Hero() {
-  // Initialize Calendly widget when component mounts
-  useEffect(() => {
-    // Check if Calendly script is already loaded
-    if (window.Calendly) {
-      return;
-    }
-    
-    // Wait for script to load if it's in the HTML
-    const checkCalendly = setInterval(() => {
-      if (window.Calendly) {
-        clearInterval(checkCalendly);
-      }
-    }, 100);
-
-    return () => clearInterval(checkCalendly);
-  }, []);
 
   return (
     <BeamsBackground intensity="medium">
@@ -51,15 +35,15 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* Video Section - Outline Only */}
+          {/* Video Section - Blue Outline */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-6 mb-8 max-w-lg mx-auto w-full px-2"
           >
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <div className="absolute inset-0 border-2 border-white/30 rounded-lg pointer-events-none"></div>
+            <div className="relative w-full bg-transparent" style={{ paddingBottom: '56.25%' }}>
+              <div className="absolute inset-0 border-2 border-[#006eff] rounded-lg pointer-events-none bg-transparent"></div>
               <wistia-player 
                 media-id="w4p6cr6l8l" 
                 aspect="1.7777777777777777" 
@@ -92,35 +76,6 @@ export default function Hero() {
             </RainbowButton>
           </motion.div>
 
-          {/* Calendly Popup Button */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-6 flex flex-col items-center gap-4 md:gap-5 px-4 w-full"
-          >
-            <button
-              onClick={() => {
-                if (window.fbq) {
-                  window.fbq('track', 'Schedule', {
-                    content_name: 'Book a Call Button - Hero',
-                    content_category: 'Calendly'
-                  });
-                }
-                if (window.Calendly) {
-                  window.Calendly.initPopupWidget({
-                    url: 'https://calendly.com/p1creative/30min'
-                  });
-                } else {
-                  window.open('https://calendly.com/p1creative/30min', '_blank');
-                }
-              }}
-              className="bg-white text-[#006eff] hover:bg-white/90 font-bold text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}
-            >
-              📅 Book Your Free Strategy Call
-            </button>
-          </motion.div>
         </div>
       </div>
     </BeamsBackground>

@@ -51,21 +51,20 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* Video Section - Much Smaller */}
+          {/* Video Section - Outline Only */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-8 max-w-lg mx-auto w-full px-2 overflow-hidden"
+            className="mt-6 mb-8 max-w-lg mx-auto w-full px-2"
           >
-            <div className="relative w-full overflow-hidden border-2 border-[#006eff]/30 shadow-lg shadow-[#006eff]/20 rounded-lg">
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <wistia-player 
-                  media-id="w4p6cr6l8l" 
-                  aspect="1.7777777777777777" 
-                  className="absolute top-0 left-0 w-full h-full"
-                ></wistia-player>
-              </div>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <div className="absolute inset-0 border-2 border-white/30 rounded-lg pointer-events-none"></div>
+              <wistia-player 
+                media-id="w4p6cr6l8l" 
+                aspect="1.7777777777777777" 
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+              ></wistia-player>
             </div>
           </motion.div>
 

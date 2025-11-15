@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/beams-background";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export default function Hero() {
+  // Initialize Calendly widget when component mounts
+  useEffect(() => {
+    // Check if Calendly script is already loaded
+    if (window.Calendly) {
+      return;
+    }
+    
+    // Wait for script to load if it's in the HTML
+    const checkCalendly = setInterval(() => {
+      if (window.Calendly) {
+        clearInterval(checkCalendly);
+      }
+    }, 100);
+
+    return () => clearInterval(checkCalendly);
+  }, []);
 
   return (
     <BeamsBackground intensity="medium">
@@ -35,14 +51,14 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* Video Section - Smaller */}
+          {/* Video Section - Much Smaller */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-8 md:mb-10 max-w-3xl mx-auto w-full px-2 overflow-hidden"
+            className="mt-6 mb-8 max-w-lg mx-auto w-full px-2 overflow-hidden"
           >
-            <div className="relative w-full overflow-hidden border-2 border-[#006eff]/30 shadow-xl shadow-[#006eff]/20 rounded-lg">
+            <div className="relative w-full overflow-hidden border-2 border-[#006eff]/30 shadow-lg shadow-[#006eff]/20 rounded-lg">
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                 <wistia-player 
                   media-id="w4p6cr6l8l" 
@@ -70,47 +86,26 @@ export default function Hero() {
                 }
                 window.open('https://build.fillout.com/editor/6HP2aE8grBus/edit', '_blank');
               }}
-              className="text-base sm:text-lg font-bold w-full sm:w-auto"
-              style={{ maxWidth: '320px', height: '56px', minWidth: '280px' }}
+              className="text-base sm:text-lg font-bold w-full sm:w-auto max-w-full"
+              style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}
             >
               Apply Today
             </RainbowButton>
           </motion.div>
 
-          {/* Book a Call Section - Smaller */}
+          {/* Embedded Calendly */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-6 md:mt-8 w-full px-4"
+            className="mt-8 md:mt-10 w-full px-4 max-w-2xl mx-auto"
           >
-            <div className="bg-gradient-to-r from-[#006eff]/20 via-white/10 to-[#0080ff]/20 backdrop-blur-md border-2 border-[#006eff]/40 rounded-xl p-4 sm:p-6 shadow-xl shadow-[#006eff]/30 max-w-xl mx-auto">
-              <div className="text-center space-y-3 sm:space-y-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
-                  Ready to Get Started?
-                </h2>
-                <p className="text-sm sm:text-base text-white/90">
-                  Book a free 30-minute strategy call
-                </p>
-                <button
-                  onClick={() => {
-                    if (window.fbq) {
-                      window.fbq('track', 'Schedule', {
-                        content_name: 'Book a Call Button',
-                        content_category: 'Calendly'
-                      });
-                    }
-                    window.open('https://calendly.com/p1creative/30min', '_blank');
-                  }}
-                  className="w-full sm:w-auto bg-white text-[#006eff] hover:bg-white/90 font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                  style={{ maxWidth: '320px', height: '56px' }}
-                >
-                  📅 Book Your Free Call
-                </button>
-                <p className="text-xs sm:text-sm text-white/70">
-                  No commitment • 30 minutes
-                </p>
-              </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 border border-white/20 overflow-hidden">
+              <div 
+                className="calendly-inline-widget" 
+                data-url="https://calendly.com/p1creative/30min"
+                style={{ minWidth: '320px', height: '630px', width: '100%' }}
+              ></div>
             </div>
           </motion.div>
         </div>

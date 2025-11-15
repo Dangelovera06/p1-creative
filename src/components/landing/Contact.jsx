@@ -1,58 +1,16 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Phone, 
   Mail, 
   MapPin, 
   Calendar,
-  Send,
-  CheckCircle,
   TrendingUp
 } from "lucide-react";
 
 export default function Contact() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // Form will be handled by Netlify natively
-
-
-  if (isSubmitted) {
-    return (
-      <div id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <Card className="border border-gray-200 shadow-lg">
-              <CardContent className="p-12">
-                <div className="space-y-6">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle className="h-8 w-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-black mb-2">Thank You!</h3>
-                    <p className="text-gray-700">
-                      We've received your message and will get back to you within 24 hours to discuss how we can help grow your medical practice.
-                    </p>
-                  </div>
-                  <Button 
-                    onClick={() => setIsSubmitted(false)}
-                    variant="outline"
-                    className="mt-4 border-black text-black hover:bg-black hover:text-white"
-                  >
-                    Send Another Message
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div id="contact" className="py-20 bg-white">
@@ -70,98 +28,8 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <Card className="border border-gray-200 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-black mb-6">Get Started Today</h3>
-                  <form 
-                    name="contact" 
-                    method="POST" 
-                    netlify
-                    className="space-y-6"
-                  >
-                    <input type="hidden" name="form-name" value="contact" />
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-black mb-2">
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        placeholder="Dr. John Smith"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-black mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="doctor@practice.com"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-black mb-2">
-                        Practice Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="practice"
-                        required
-                        placeholder="Your Medical Practice"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-black mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        placeholder="(555) 123-4567"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-black mb-2">
-                      How can we help you?
-                    </label>
-                    <textarea
-                      name="message"
-                      placeholder="Tell us about your practice and marketing goals..."
-                      rows={4}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-black"
-                    ></textarea>
-                  </div>
-
-                  <button 
-                    type="submit"
-                    className="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-full text-lg font-semibold flex items-center justify-center"
-                  >
-                    <Send className="mr-2 h-5 w-5" />
-                    Get Your Free Strategy Session
-                  </button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="space-y-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6">
             <Card className="border border-gray-200 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-black mb-6">Contact Information</h3>
@@ -193,6 +61,42 @@ export default function Contact() {
                       <div className="text-gray-700">Within 24 hours</div>
                     </div>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-gray-200 shadow-lg bg-gradient-to-br from-[#006eff] to-[#0080ff] text-white">
+              <CardContent className="p-8">
+                <div className="text-center space-y-6">
+                  <Calendar className="h-12 w-12 text-white mx-auto" />
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-3">
+                      Book Your Free Strategy Call
+                    </h3>
+                    <p className="text-white/90 text-lg">
+                      Schedule a 30-minute call to discuss how we can transform your business and fill your calendar with ready-to-buy clients.
+                    </p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <p className="text-sm text-white/80">
+                      📅 30 minutes • 💬 No commitment • 🚀 See how we can help
+                    </p>
+                  </div>
+                  <Button 
+                    onClick={() => {
+                      if (window.fbq) {
+                        window.fbq('track', 'Schedule', {
+                          content_name: 'Book a Call - Contact Section',
+                          content_category: 'Calendly'
+                        });
+                      }
+                      window.open('https://calendly.com/p1creative/30min', '_blank');
+                    }}
+                    className="w-full bg-white text-[#006eff] hover:bg-gray-100 py-4 text-lg font-semibold"
+                  >
+                    <Calendar className="mr-2 h-6 w-6" />
+                    Book Your Free Call
+                  </Button>
                 </div>
               </CardContent>
             </Card>

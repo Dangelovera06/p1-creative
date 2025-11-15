@@ -68,13 +68,49 @@ export default function Hero() {
                     content_category: 'CTA Button'
                   });
                 }
-                window.open('#', '_blank');
+                window.open('https://build.fillout.com/editor/6HP2aE8grBus/edit', '_blank');
               }}
               className="text-base sm:text-lg font-bold w-full sm:w-auto max-w-full"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}
             >
               Apply Today
             </RainbowButton>
+          </motion.div>
+
+          {/* Book a Call Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mt-8 md:mt-12 w-full px-4"
+          >
+            <div className="bg-gradient-to-r from-[#006eff]/20 via-white/10 to-[#0080ff]/20 backdrop-blur-md border-2 border-[#006eff]/40 rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl shadow-[#006eff]/30 max-w-2xl mx-auto">
+              <div className="text-center space-y-4 sm:space-y-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                  Ready to Get Started?
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-white/90">
+                  Book a free 30-minute strategy call to discuss how we can transform your business
+                </p>
+                <button
+                  onClick={() => {
+                    if (window.fbq) {
+                      window.fbq('track', 'Schedule', {
+                        content_name: 'Book a Call Button',
+                        content_category: 'Calendly'
+                      });
+                    }
+                    window.open('https://calendly.com/p1creative/30min', '_blank');
+                  }}
+                  className="w-full sm:w-auto bg-white text-[#006eff] hover:bg-white/90 font-bold text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  📅 Book Your Free Strategy Call
+                </button>
+                <p className="text-sm sm:text-base text-white/70">
+                  No commitment • 30 minutes • See how we can help
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

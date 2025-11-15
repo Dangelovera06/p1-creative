@@ -93,20 +93,34 @@ export default function Hero() {
             </RainbowButton>
           </motion.div>
 
-          {/* Embedded Calendly */}
+          {/* Calendly Popup Button */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-8 md:mt-10 w-full px-4 max-w-2xl mx-auto"
+            className="mt-6 flex flex-col items-center gap-4 md:gap-5 px-4 w-full"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 border border-white/20 overflow-hidden">
-              <div 
-                className="calendly-inline-widget" 
-                data-url="https://calendly.com/p1creative/30min"
-                style={{ minWidth: '320px', height: '630px', width: '100%' }}
-              ></div>
-            </div>
+            <button
+              onClick={() => {
+                if (window.fbq) {
+                  window.fbq('track', 'Schedule', {
+                    content_name: 'Book a Call Button - Hero',
+                    content_category: 'Calendly'
+                  });
+                }
+                if (window.Calendly) {
+                  window.Calendly.initPopupWidget({
+                    url: 'https://calendly.com/p1creative/30min'
+                  });
+                } else {
+                  window.open('https://calendly.com/p1creative/30min', '_blank');
+                }
+              }}
+              className="bg-white text-[#006eff] hover:bg-white/90 font-bold text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}
+            >
+              📅 Book Your Free Strategy Call
+            </button>
           </motion.div>
         </div>
       </div>

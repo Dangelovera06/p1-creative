@@ -25,7 +25,7 @@ export default function Layout({ children }) {
                                         content_category: 'CTA Button'
                                     });
                                 }
-                                window.open('https://build.fillout.com/editor/6HP2aE8grBus/edit', '_blank');
+                                window.open('https://forms.fillout.com/t/6HP2aE8grBus', '_blank');
                             }}
                             className="bg-white text-black hover:bg-white/90 font-bold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 whitespace-nowrap"
                         >

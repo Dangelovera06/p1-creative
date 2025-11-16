@@ -69,7 +69,7 @@ export default function Hero() {
                     content_category: 'CTA Button'
                   });
                 }
-                window.open('https://build.fillout.com/editor/6HP2aE8grBus/edit', '_blank');
+                window.open('https://forms.fillout.com/t/6HP2aE8grBus', '_blank');
               }}
               className="text-base sm:text-lg font-bold w-full sm:w-auto max-w-full"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}

@@ -1,21 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function CalendlyEmbed() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
+  const calendlyRef = useRef(null);
+  const [calendlyHeight, setCalendlyHeight] = useState(1000);
 
-    return () => {
-      document.body.removeChild(script);
+  useEffect(() => {
+    // Set responsive height
+    const updateHeight = () => {
+      setCalendlyHeight(window.innerWidth < 640 ? 900 : 1100);
     };
+    
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
+  useEffect(() => {
+    // Initialize Calendly inline widget
+    const initCalendly = () => {
+      if (window.Calendly && calendlyRef.current) {
+        window.Calendly.initInlineWidget({
+          url: 'https://calendly.com/p1creative/30min',
+          parentElement: calendlyRef.current,
+        });
+      }
+    };
+
+    if (window.Calendly) {
+      initCalendly();
+    } else {
+      // Wait for Calendly script to load
+      const checkCalendly = setInterval(() => {
+        if (window.Calendly) {
+          initCalendly();
+          clearInterval(checkCalendly);
+        }
+      }, 100);
+
+      return () => clearInterval(checkCalendly);
+    }
   }, []);
 
   return (
     <section className="py-16 md:py-24 relative bg-neutral-950">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,12 +69,16 @@ export default function CalendlyEmbed() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8"
+          className="flex justify-center w-full"
         >
           <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/p1creative/30min"
-            style={{ minWidth: "320px", height: "700px" }}
+            ref={calendlyRef}
+            className="calendly-inline-widget w-full"
+            style={{ 
+              minWidth: "320px", 
+              height: `${calendlyHeight}px`, 
+              maxWidth: "1400px" 
+            }}
           ></div>
         </motion.div>
       </div>

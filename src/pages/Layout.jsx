@@ -36,7 +36,7 @@ export default function Layout({ children }) {
             </header>
             
             {/* Main Content */}
-            <main className="w-full overflow-x-hidden pt-16 sm:pt-20">
+            <main className="w-full overflow-x-hidden">
                 {children}
             </main>
         </div>

@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <BeamsBackground intensity="medium">
       {/* Main Hero Content */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 sm:px-6 py-16 pt-24 sm:pt-28 w-full overflow-x-hidden">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 sm:px-6 py-16 pt-20 sm:pt-24 w-full overflow-x-hidden">
         <div className="mx-auto max-w-5xl w-full text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

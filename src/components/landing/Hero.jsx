@@ -40,7 +40,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-4 flex justify-center items-center w-full"
+            className="mt-6 mb-8 flex justify-center items-center w-full"
           >
             <div className="relative w-full" style={{ maxWidth: '853px', aspectRatio: '16/9' }}>
               <wistia-player 
@@ -59,7 +59,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col items-center gap-4 md:gap-5 px-4 w-full mt-4"
+            className="flex flex-col items-center gap-4 md:gap-5 px-4 w-full mt-8"
           >
             <RainbowButton
               onClick={() => {

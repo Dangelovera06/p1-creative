@@ -10,12 +10,12 @@ import {
 
 export default function Contact() {
   const calendlyRef = useRef(null);
-  const [calendlyHeight, setCalendlyHeight] = useState(1200);
+  const [calendlyHeight, setCalendlyHeight] = useState(800);
 
   useEffect(() => {
     // Set responsive height
     const updateHeight = () => {
-      setCalendlyHeight(window.innerWidth < 640 ? 1000 : 1400);
+      setCalendlyHeight(window.innerWidth < 640 ? 700 : 900);
     };
     
     updateHeight();
@@ -137,7 +137,7 @@ export default function Contact() {
               style={{ 
                 minWidth: '320px', 
                 height: `${calendlyHeight}px`, 
-                maxWidth: '100%',
+                maxWidth: '1200px',
                 width: '100%'
               }}>
             </div>

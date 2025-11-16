@@ -43,11 +43,10 @@ export default function Hero() {
             className="mt-6 mb-8 max-w-lg mx-auto w-full px-2"
           >
             <div className="relative w-full bg-transparent" style={{ paddingBottom: '56.25%' }}>
-              <div className="absolute inset-0 border-2 border-[#006eff] rounded-lg pointer-events-none bg-transparent"></div>
               <wistia-player 
                 media-id="w4p6cr6l8l" 
                 aspect="1.7777777777777777" 
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-[#006eff]"
               ></wistia-player>
             </div>
           </motion.div>

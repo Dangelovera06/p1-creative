@@ -16,7 +16,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-tight px-2 break-words">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight px-2 break-words">
               Turn Your Business Into a{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white/90 to-[#0080ff]">
                 Lead-Generating Machine
@@ -40,7 +40,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-8 flex justify-center items-center w-full"
+            className="mt-6 mb-10 flex justify-center items-center w-full"
           >
             <div className="relative w-full" style={{ maxWidth: '853px', aspectRatio: '16/9' }}>
               <wistia-player 
@@ -59,7 +59,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col items-center gap-4 md:gap-5 px-4 w-full mt-8"
+            className="flex flex-col items-center gap-4 md:gap-5 px-4 w-full mt-10"
           >
             <RainbowButton
               onClick={() => {

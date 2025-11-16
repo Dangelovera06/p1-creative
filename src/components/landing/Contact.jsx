@@ -91,13 +91,13 @@ export default function Contact() {
             </Card>
 
             {/* Embedded Calendly Widget */}
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 mt-6 sm:mt-8">
               <Card className="border border-gray-200 shadow-lg">
-                <CardContent className="p-4 sm:p-6">
+                <CardContent className="p-6 sm:p-8 md:p-10">
                   <div 
                     ref={calendlyRef}
                     className="calendly-inline-widget" 
-                    style={{ minWidth: '320px', height: '700px', width: '100%' }}>
+                    style={{ minWidth: '320px', height: '900px', width: '100%' }}>
                   </div>
                 </CardContent>
               </Card>

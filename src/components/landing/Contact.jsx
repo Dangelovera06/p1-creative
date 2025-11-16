@@ -10,12 +10,12 @@ import {
 
 export default function Contact() {
   const calendlyRef = useRef(null);
-  const [calendlyHeight, setCalendlyHeight] = useState(900);
+  const [calendlyHeight, setCalendlyHeight] = useState(1200);
 
   useEffect(() => {
     // Set responsive height
     const updateHeight = () => {
-      setCalendlyHeight(window.innerWidth < 640 ? 700 : 900);
+      setCalendlyHeight(window.innerWidth < 640 ? 1000 : 1400);
     };
     
     updateHeight();
@@ -135,9 +135,10 @@ export default function Contact() {
               ref={calendlyRef}
               className="calendly-inline-widget w-full" 
               style={{ 
-                minWidth: '280px', 
+                minWidth: '320px', 
                 height: `${calendlyHeight}px`, 
-                maxWidth: '1200px' 
+                maxWidth: '100%',
+                width: '100%'
               }}>
             </div>
           </div>

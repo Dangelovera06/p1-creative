@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 
 export default function CalendlyEmbed() {
   const calendlyRef = useRef(null);
-  const [calendlyHeight, setCalendlyHeight] = useState(1000);
+  const [calendlyHeight, setCalendlyHeight] = useState(1400);
 
   useEffect(() => {
     // Set responsive height
     const updateHeight = () => {
-      setCalendlyHeight(window.innerWidth < 640 ? 900 : 1100);
+      setCalendlyHeight(window.innerWidth < 640 ? 1200 : 1600);
     };
     
     updateHeight();
@@ -77,7 +77,8 @@ export default function CalendlyEmbed() {
             style={{ 
               minWidth: "320px", 
               height: `${calendlyHeight}px`, 
-              maxWidth: "1400px" 
+              maxWidth: "100%",
+              width: "100%"
             }}
           ></div>
         </motion.div>

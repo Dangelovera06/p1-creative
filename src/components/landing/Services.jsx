@@ -44,47 +44,47 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="py-20 bg-white">
+    <div className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
-          <Badge variant="secondary" className="bg-black text-white border-black">
+          <Badge variant="secondary" className="bg-white/10 text-white border-white/20 backdrop-blur-sm">
             Our Services
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-black">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white">
             Everything Your Medical Practice Needs to
-            <span className="text-gray-600"> Thrive Online</span>
+            <span className="text-white/70"> Thrive Online</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
             From content creation to targeted advertising, we handle every aspect of your digital marketing so you can focus on what you do best - caring for patients.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-gray-200 shadow-lg">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-white/10 backdrop-blur-md bg-white/5 shadow-lg">
               <CardContent className="p-8">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center`}>
+                    <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
                       <service.icon className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
-                      <p className="text-gray-700 leading-relaxed">{service.description}</p>
+                      <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+                      <p className="text-white/70 leading-relaxed">{service.description}</p>
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
-                        <span className="text-gray-700">{feature}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        <span className="text-white/80">{feature}</span>
                       </div>
                     ))}
                   </div>
 
                   <div className="pt-4">
-                    <button className="flex items-center text-black hover:text-gray-600 font-medium group-hover:translate-x-1 transition-transform">
+                    <button className="flex items-center text-white hover:text-white/80 font-medium group-hover:translate-x-1 transition-transform">
                       Learn More
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </button>

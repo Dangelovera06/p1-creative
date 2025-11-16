@@ -3,16 +3,16 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Founder() {
   return (
-    <div className="py-20 bg-gray-50">
+    <div className="py-20 bg-black">
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div className="space-y-4 mb-12">
           <Badge
             variant="secondary"
-            className="bg-black text-white border-black"
+            className="bg-white/10 text-white border-white/20 backdrop-blur-sm"
           >
             The Visionary
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-black">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white">
             Meet the Founder
           </h2>
         </div>
@@ -21,11 +21,11 @@ export default function Founder() {
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/48b723725_DSC04789.jpg"
               alt="Founder of P1 Creative"
-              className="w-48 h-48 rounded-full object-cover object-top shadow-lg border-4 border-white"
+              className="w-48 h-48 rounded-full object-cover object-top shadow-lg border-4 border-white/20"
             />
           </div>
           <div className="space-y-4">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               "I started P1 Creative with a single mission: to empower medical
               professionals by telling their unique stories. In a world
               saturated with generic marketing, we focus on authentic,
@@ -35,8 +35,8 @@ export default function Founder() {
               in your community."
             </p>
             <div>
-              <p className="font-bold text-xl text-black">D'Angelo Vera</p>
-              <p className="text-gray-600">
+              <p className="font-bold text-xl text-white">D'Angelo Vera</p>
+              <p className="text-white/60">
                 Founder & Creative Director, P1 Creative
               </p>
             </div>

@@ -1,16 +1,41 @@
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
   Mail, 
   MapPin, 
-  Calendar,
-  TrendingUp
+  Calendar
 } from "lucide-react";
 
 export default function Contact() {
+  const calendlyRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize Calendly inline widget
+    const initCalendly = () => {
+      if (window.Calendly && calendlyRef.current) {
+        window.Calendly.initInlineWidget({
+          url: 'https://calendly.com/p1creative/30min',
+          parentElement: calendlyRef.current,
+        });
+      }
+    };
+
+    if (window.Calendly) {
+      initCalendly();
+    } else {
+      // Wait for Calendly script to load
+      const checkCalendly = setInterval(() => {
+        if (window.Calendly) {
+          initCalendly();
+          clearInterval(checkCalendly);
+        }
+      }, 100);
+
+      return () => clearInterval(checkCalendly);
+    }
+  }, []);
 
   return (
     <div id="contact" className="py-12 sm:py-16 md:py-20 bg-white">
@@ -65,61 +90,18 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 shadow-lg bg-gradient-to-br from-[#006eff] to-[#0080ff] text-white">
-              <CardContent className="p-4 sm:p-6">
-                <div className="text-center space-y-3 sm:space-y-4">
-                  <Calendar className="h-8 w-8 sm:h-10 sm:w-10 text-white mx-auto" />
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                      Book Your Free Strategy Call
-                    </h3>
-                    <p className="text-white/90 text-sm sm:text-base">
-                      Schedule a 30-minute call to discuss how we can transform your business
-                    </p>
+            {/* Embedded Calendly Widget */}
+            <div className="md:col-span-2">
+              <Card className="border border-gray-200 shadow-lg">
+                <CardContent className="p-4 sm:p-6">
+                  <div 
+                    ref={calendlyRef}
+                    className="calendly-inline-widget" 
+                    style={{ minWidth: '320px', height: '700px', width: '100%' }}>
                   </div>
-                  <Button 
-                    onClick={() => {
-                      if (window.fbq) {
-                        window.fbq('track', 'Schedule', {
-                          content_name: 'Book a Call - Contact Section',
-                          content_category: 'Calendly'
-                        });
-                      }
-                      window.open('https://calendly.com/p1creative/30min', '_blank');
-                    }}
-                    className="w-full bg-white text-[#006eff] hover:bg-gray-100 font-bold text-base sm:text-lg rounded-full"
-                    style={{ height: '56px', maxWidth: '320px', margin: '0 auto' }}
-                  >
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Book Your Free Call
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-gray-200 shadow-lg bg-gradient-to-br from-black to-gray-800 text-white">
-              <CardContent className="p-4 sm:p-6">
-                <div className="text-center space-y-3 sm:space-y-4">
-                  <TrendingUp className="h-8 w-8 sm:h-10 sm:w-10 text-white mx-auto" />
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                      Discover Your Business Growth Potential
-                    </h3>
-                    <p className="text-gray-300 text-sm sm:text-base">
-                      Take our quick assessment to get a personalized marketing strategy
-                    </p>
-                  </div>
-                  <Button 
-                    onClick={() => window.location.href = '/Quiz'}
-                    className="w-full bg-white text-black hover:bg-gray-100 font-bold text-base sm:text-lg rounded-full"
-                    style={{ height: '56px', maxWidth: '320px', margin: '0 auto' }}
-                  >
-                    <TrendingUp className="mr-2 h-5 w-5" />
-                    Start Your Growth Assessment
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
 
             <Card className="border border-gray-200 shadow-lg bg-gray-50">
               <CardContent className="p-4 sm:p-6">

@@ -16,6 +16,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full">
+                <div className="w-2 h-2 rounded-full bg-[#006eff] animate-pulse"></div>
+                <span className="text-sm sm:text-base text-white/90 font-medium tracking-wide uppercase">Limited Spots Available</span>
+              </div>
+            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight px-2 break-words">
               Turn Your Business Into a{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white/90 to-[#0080ff]">
@@ -76,6 +82,9 @@ export default function Hero() {
             >
               Apply Today
             </RainbowButton>
+            <p className="text-xs sm:text-sm text-white/60 font-medium">
+              Limited Spots Available
+            </p>
           </motion.div>
 
         </div>

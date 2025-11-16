@@ -40,12 +40,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-4 max-w-2xl mx-auto w-full px-2"
+            className="mt-6 mb-4 flex justify-center items-center w-full"
           >
-            <div className="relative w-full bg-transparent" style={{ paddingBottom: '100%' }}>
+            <div className="relative w-full" style={{ maxWidth: '853px', aspectRatio: '16/9' }}>
               <wistia-player 
                 media-id="w4p6cr6l8l" 
-                aspect="1" 
+                aspect="1.7777777777777777" 
                 className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-[#006eff]"
                 style={{
                   boxShadow: '0 0 20px rgba(0, 110, 255, 0.6), 0 0 40px rgba(0, 110, 255, 0.4), 0 0 60px rgba(0, 110, 255, 0.2)'

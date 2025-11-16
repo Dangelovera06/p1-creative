@@ -91,7 +91,7 @@ export default function Contact() {
             </Card>
 
             {/* Embedded Calendly Widget */}
-            <div className="md:col-span-2 mt-6 sm:mt-8 flex justify-center">
+            <div className="md:col-span-2 flex justify-center">
               <div 
                 ref={calendlyRef}
                 className="calendly-inline-widget" 

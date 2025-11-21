@@ -50,9 +50,9 @@ export default function PlaybookHero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-8 mb-10 md:mb-12 max-w-6xl mx-auto w-full px-2"
+            className="mt-8 mb-10 md:mb-12 max-w-7xl mx-auto w-full px-2"
           >
-            <div className="relative overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20 rounded-lg">
+            <div className="relative overflow-hidden">
               <img 
                 src="/replace.png" 
                 alt="Marketing System" 

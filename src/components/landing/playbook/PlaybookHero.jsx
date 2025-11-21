@@ -39,7 +39,7 @@ export default function PlaybookHero() {
               </div>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-tight px-2">
-              Get the playbook we use to{' '}
+              Get the playbook we use to<br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white to-[#0080ff]">
                 generate over 2.5M
               </span>

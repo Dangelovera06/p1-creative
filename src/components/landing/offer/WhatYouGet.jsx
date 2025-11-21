@@ -10,7 +10,7 @@ const sprintFeatures = [
   "SOPs + Slack + Weekly Optimization"
 ];
 
-export default function WhatYouGet({ onCTAClick }) {
+export default function WhatYouGet({ onCTAClick, ctaText = "Claim Your Spot" }) {
   return (
     <section className="py-24 md:py-32 bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +81,7 @@ export default function WhatYouGet({ onCTAClick }) {
               className="pointer-events-none absolute inset-0 translate-x-[-100%] animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"
             />
             <span className="relative z-10 flex flex-col items-center justify-center gap-1">
-              <span className="font-black text-lg sm:text-xl">Claim Your Spot</span>
+              <span className="font-black text-lg sm:text-xl">{ctaText}</span>
             </span>
           </button>
           <p className="text-white/60 text-sm sm:text-base mt-4 px-4">

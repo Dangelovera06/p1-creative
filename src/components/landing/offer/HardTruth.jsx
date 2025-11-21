@@ -26,7 +26,7 @@ const benefits = [
   }
 ];
 
-export default function HardTruth({ onCTAClick }) {
+export default function HardTruth({ onCTAClick, ctaText = "Get Started Now" }) {
   return (
     <section className="py-16 md:py-24 relative bg-neutral-950">
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
@@ -107,7 +107,7 @@ export default function HardTruth({ onCTAClick }) {
               className="text-base sm:text-lg font-bold w-full sm:w-auto"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px' }}
             >
-              Get Started Now
+              {ctaText}
             </RainbowButton>
           </motion.div>
         </motion.div>

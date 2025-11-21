@@ -20,7 +20,7 @@ const steps = [
   }
 ];
 
-export default function Blueprint({ onCTAClick }) {
+export default function Blueprint({ onCTAClick, ctaText = "Get Started Now" }) {
   return (
     <section id="blueprint" className="py-24 md:py-32 bg-neutral-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,7 +94,7 @@ export default function Blueprint({ onCTAClick }) {
               className="pointer-events-none absolute inset-0 translate-x-[-100%] animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"
             />
             <span className="relative z-10 flex items-center justify-center gap-2">
-              <span>Get Started Now</span>
+              <span>{ctaText}</span>
               <ArrowRight className="w-5 h-5 flex-shrink-0" />
             </span>
           </button>

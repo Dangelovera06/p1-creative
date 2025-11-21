@@ -58,7 +58,7 @@ export default function PlaybookHero() {
           >
             <div className="relative overflow-hidden">
               <img 
-                src="/new replace.png" 
+                src="/UPDATED IMAGE.png" 
                 alt="Marketing System" 
                 className="w-full h-auto"
               />

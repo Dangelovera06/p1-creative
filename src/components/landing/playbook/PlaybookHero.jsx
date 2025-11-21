@@ -44,6 +44,9 @@ export default function PlaybookHero() {
                 generate over 2.5M
               </span>
             </h1>
+            <p className="text-base sm:text-lg md:text-xl text-white/70 font-medium px-2">
+              The proven system that's generated millions in revenue for our clients
+            </p>
           </motion.div>
 
           {/* Image Section - Replacing VSL */}
@@ -51,14 +54,14 @@ export default function PlaybookHero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-4 md:mb-6 w-full px-0"
+            className="mt-6 mb-4 md:mb-6 w-full px-0 -mx-6 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-20"
           >
             <div className="relative overflow-hidden">
               <img 
                 src="/new replace.png" 
                 alt="Marketing System" 
                 className="w-full h-auto"
-                style={{ maxWidth: '100vw' }}
+                style={{ width: 'calc(100% + 12rem)', maxWidth: 'none', marginLeft: 'auto', marginRight: 'auto' }}
               />
             </div>
           </motion.div>

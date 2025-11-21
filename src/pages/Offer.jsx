@@ -26,6 +26,34 @@ export default function Offer() {
 
   return (
     <div className="min-h-screen overflow-x-hidden w-full bg-neutral-950">
+      {/* Playbook Modal - Opens on page load */}
+      <Dialog open={showPlaybookModal} onOpenChange={setShowPlaybookModal}>
+        <DialogContent className="bg-neutral-900 border-white/20 text-white sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl sm:text-3xl font-bold text-center text-white">
+              Get Playbook
+            </DialogTitle>
+            <DialogDescription className="text-center text-white/70 pt-2">
+              Download your free playbook to get started
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col items-center gap-4 pt-4">
+            <button
+              onClick={handleDownloadPlaybook}
+              className="w-full px-6 py-3 bg-gradient-to-r from-[#006eff] to-[#0080ff] text-white font-bold text-lg rounded-lg hover:from-[#0056cc] hover:to-[#0066cc] transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Download Playbook
+            </button>
+            <button
+              onClick={() => setShowPlaybookModal(false)}
+              className="text-sm text-white/60 hover:text-white/80 transition-colors"
+            >
+              Maybe later
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Floating Navigation Header - Visible Throughout Site */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 gap-4 relative">

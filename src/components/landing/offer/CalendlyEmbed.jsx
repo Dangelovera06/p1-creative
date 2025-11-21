@@ -46,23 +46,6 @@ export default function CalendlyEmbed() {
   return (
     <section className="py-16 md:py-24 relative bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
-            Book Your{" "}
-            <span className="bg-gradient-to-r from-[#006eff] via-white to-[#0080ff] bg-clip-text text-transparent">
-              Free Strategy Call
-            </span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
-            Pick a time that works for you. We'll show you exactly how this system can fill your calendar.
-          </p>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

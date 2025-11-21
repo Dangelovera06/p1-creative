@@ -32,21 +32,18 @@ export default function PlaybookHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-4"
           >
-            <div className="flex justify-center mb-4">
-              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full">
-                <div className="w-2 h-2 rounded-full bg-[#006eff] animate-pulse"></div>
-                <span className="text-sm sm:text-base text-white/90 font-medium tracking-wide uppercase">Free Download</span>
+            <div className="flex justify-center mb-3">
+              <div className="inline-flex items-center gap-1.5 border border-white/20 bg-white/10 backdrop-blur-sm py-1 px-2.5 rounded-full">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#006eff] animate-pulse"></div>
+                <span className="text-xs text-white/90 font-medium tracking-wide uppercase">Free Download</span>
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-white leading-tight px-2">
-              Get Your Free{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white to-[#0080ff] animate-gradient">
-                Marketing Playbook
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-tight px-2">
+              Get the playbook we use to{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white to-[#0080ff]">
+                generate over 2.5M
               </span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/70 font-medium px-2">
-              The Complete Guide to Growing Your Business
-            </p>
           </motion.div>
 
           {/* Image Section - Replacing VSL */}
@@ -54,13 +51,14 @@ export default function PlaybookHero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-4 md:mb-6 max-w-7xl mx-auto w-full px-0 sm:px-2"
+            className="mt-6 mb-4 md:mb-6 w-full px-0"
           >
             <div className="relative overflow-hidden">
               <img 
                 src="/new replace.png" 
                 alt="Marketing System" 
                 className="w-full h-auto"
+                style={{ maxWidth: '100vw' }}
               />
             </div>
           </motion.div>

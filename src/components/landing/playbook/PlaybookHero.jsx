@@ -54,14 +54,13 @@ export default function PlaybookHero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 mb-4 md:mb-6 w-full px-0 -mx-6 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-20"
+            className="mt-6 mb-4 md:mb-6 max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] mx-auto w-full px-0"
           >
             <div className="relative overflow-hidden">
               <img 
                 src="/new replace.png" 
                 alt="Marketing System" 
                 className="w-full h-auto"
-                style={{ width: 'calc(100% + 12rem)', maxWidth: 'none', marginLeft: 'auto', marginRight: 'auto' }}
               />
             </div>
           </motion.div>

@@ -33,16 +33,11 @@ export default function PlaybookHero() {
             className="space-y-6"
           >
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight px-2">
-              Let Our System Fill Your Calendar With{' '}
+              Get Your Free{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-white/90 to-[#0080ff]">
-                Qualified Appointments
-              </span>{' '}
-              — Every Month, On Autopilot.
+                Marketing Playbook
+              </span>
             </h1>
-
-            <p className="text-lg sm:text-xl md:text-2xl font-light px-2 text-white/80">
-              Content, ads, AI follow-up, and automated booking — fully done for you by our team in 30 days.
-            </p>
           </motion.div>
 
           {/* Image Section - Replacing VSL */}

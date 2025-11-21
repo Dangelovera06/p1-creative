@@ -92,7 +92,7 @@ export default function PlaybookStats() {
             size="lg" 
             className="bg-white hover:bg-white/90 text-black px-8 py-4 rounded-full text-lg font-semibold"
           >
-            Download Playbook
+            Get Free Playbook
             <Download className="ml-2 h-5 w-5" />
           </Button>
         </div>

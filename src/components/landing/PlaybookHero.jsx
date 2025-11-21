@@ -69,7 +69,7 @@ export default function PlaybookHero() {
               className="text-base sm:text-lg font-bold w-full sm:w-auto max-w-full"
               style={{ maxWidth: '397.2px', height: '62.4px', minWidth: '280px', width: '100%' }}
             >
-              Download Playbook
+              Get Free Playbook
             </RainbowButton>
             <p className="text-xs sm:text-sm text-white/60 font-medium">
               Limited Spots Available

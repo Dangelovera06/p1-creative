@@ -30,7 +30,7 @@ export default function WhatWeDo() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-16 text-center">
           What We Do
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <div key={index} className="border-t border-white/10 pt-6">
               <h3 className="text-xl font-medium text-white mb-3">
@@ -42,7 +42,40 @@ export default function WhatWeDo() {
             </div>
           ))}
         </div>
+
+        {/* Work Showcase Videos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+            <wistia-player 
+              media-id="9qg1xl14ce" 
+              aspect="0.5625"
+              className="absolute top-0 left-0 w-full h-full"
+            ></wistia-player>
+          </div>
+          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+            <wistia-player 
+              media-id="2ucaviy334" 
+              aspect="0.5625"
+              className="absolute top-0 left-0 w-full h-full"
+            ></wistia-player>
+          </div>
+        </div>
       </div>
+      
+      <style>{`
+        wistia-player[media-id='9qg1xl14ce']:not(:defined) { 
+          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9qg1xl14ce/swatch'); 
+          display: block; 
+          filter: blur(5px); 
+          padding-top: 177.78%; 
+        }
+        wistia-player[media-id='2ucaviy334']:not(:defined) { 
+          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2ucaviy334/swatch'); 
+          display: block; 
+          filter: blur(5px); 
+          padding-top: 177.78%; 
+        }
+      `}</style>
     </section>
   );
 }

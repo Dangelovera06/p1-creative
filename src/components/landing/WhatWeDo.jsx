@@ -45,27 +45,27 @@ export default function WhatWeDo() {
 
         {/* Work Showcase Videos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-          <div className="relative w-full max-w-md mx-auto" style={{ paddingTop: '100%' }}>
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden" style={{ paddingTop: '100%' }}>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl">
               <wistia-player 
                 media-id="9qg1xl14ce" 
                 aspect="1"
                 autoplay
                 muted
-                className="absolute top-0 left-0 w-full"
-                style={{ height: '200%', transform: 'translateY(0)' }}
+                className="absolute left-0 w-full rounded-2xl"
+                style={{ height: '200%', transform: 'translateY(-25%)' }}
               ></wistia-player>
             </div>
           </div>
-          <div className="relative w-full max-w-md mx-auto" style={{ paddingTop: '100%' }}>
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden" style={{ paddingTop: '100%' }}>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl">
               <wistia-player 
                 media-id="2ucaviy334" 
                 aspect="1"
                 autoplay
                 muted
-                className="absolute top-0 left-0 w-full"
-                style={{ height: '200%', transform: 'translateY(0)' }}
+                className="absolute left-0 w-full rounded-2xl"
+                style={{ height: '200%', transform: 'translateY(-25%)' }}
               ></wistia-player>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function WhatWeDo() {
         wistia-player[media-id='9qg1xl14ce'],
         wistia-player[media-id='2ucaviy334'] {
           object-fit: cover;
-          object-position: top;
+          object-position: center;
         }
       `}</style>
     </section>

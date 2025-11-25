@@ -56,33 +56,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Special Offer CTA */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="text-center mb-8">
-            <Link
-              to="/offer"
-              className="inline-block relative group"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
-              <button className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:shadow-[0_0_30px_rgba(37,99,235,0.8)] transform hover:scale-105">
-                <span className="flex items-center gap-2">
-                  <span>Get Our Special Offer</span>
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-              </button>
-            </Link>
-            <p className="text-gray-400 text-sm mt-3">
-              Limited spots available • Complete lead generation system
-            </p>
-          </div>
-          
+        <div className="border-t border-white/10 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm">
-              © 2024 P1 Creative. All rights reserved.
+            <div className="text-white/60 text-sm">
+              © 2025 P1 Creative. All rights reserved.
             </div>
-            <div className="flex items-center space-x-1 text-gray-400 text-sm mt-4 md:mt-0">
+            <div className="flex items-center space-x-1 text-white/60 text-sm mt-4 md:mt-0">
               <span>Made with</span>
-              <Heart className="h-4 w-4 text-red-500" />
+              <Heart className="h-4 w-4 text-white/60" />
               <span>for Florida medical practices</span>
             </div>
           </div>

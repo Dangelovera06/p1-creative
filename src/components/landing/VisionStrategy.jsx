@@ -14,24 +14,10 @@ export default function VisionStrategy() {
         </div>
         
         {/* Video Showcase */}
-        <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          <div className="relative w-full" style={{ paddingTop: '177.78%' }}>
+        <div className="mb-12 max-w-5xl mx-auto">
+          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
             <wistia-player 
               media-id="aoangn3r46" 
-              aspect="0.5625"
-              className="absolute top-0 left-0 w-full h-full"
-            ></wistia-player>
-          </div>
-          <div className="relative w-full" style={{ paddingTop: '177.78%' }}>
-            <wistia-player 
-              media-id="9qg1xl14ce" 
-              aspect="0.5625"
-              className="absolute top-0 left-0 w-full h-full"
-            ></wistia-player>
-          </div>
-          <div className="relative w-full" style={{ paddingTop: '177.78%' }}>
-            <wistia-player 
-              media-id="2ucaviy334" 
               aspect="0.5625"
               className="absolute top-0 left-0 w-full h-full"
             ></wistia-player>
@@ -59,18 +45,6 @@ export default function VisionStrategy() {
       <style>{`
         wistia-player[media-id='aoangn3r46']:not(:defined) { 
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aoangn3r46/swatch'); 
-          display: block; 
-          filter: blur(5px); 
-          padding-top: 177.78%; 
-        }
-        wistia-player[media-id='9qg1xl14ce']:not(:defined) { 
-          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9qg1xl14ce/swatch'); 
-          display: block; 
-          filter: blur(5px); 
-          padding-top: 177.78%; 
-        }
-        wistia-player[media-id='2ucaviy334']:not(:defined) { 
-          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2ucaviy334/swatch'); 
           display: block; 
           filter: blur(5px); 
           padding-top: 177.78%; 

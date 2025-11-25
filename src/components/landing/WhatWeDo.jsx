@@ -30,21 +30,21 @@ export default function WhatWeDo() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-16 text-center">
           What We Do
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div key={index} className="border-t border-white/10 pt-6">
-              <h3 className="text-xl font-medium text-white mb-3">
-                {service.title}
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
-        </div>
 
-        {/* Work Showcase Videos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+        {/* Work Showcase Videos - First */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden" style={{ paddingTop: '100%' }}>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl">
+              <wistia-player 
+                media-id="aoangn3r46" 
+                aspect="1"
+                autoplay
+                muted
+                className="absolute left-0 w-full rounded-2xl"
+                style={{ height: '200%', transform: 'translateY(-25%)' }}
+              ></wistia-player>
+            </div>
+          </div>
           <div className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden" style={{ paddingTop: '100%' }}>
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl">
               <wistia-player 
@@ -70,9 +70,29 @@ export default function WhatWeDo() {
             </div>
           </div>
         </div>
+
+        {/* Services List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div key={index} className="border-t border-white/10 pt-6">
+              <h3 className="text-xl font-medium text-white mb-3">
+                {service.title}
+              </h3>
+              <p className="text-white/70 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
       
       <style>{`
+        wistia-player[media-id='aoangn3r46']:not(:defined) { 
+          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aoangn3r46/swatch'); 
+          display: block; 
+          filter: blur(5px); 
+          padding-top: 100%; 
+        }
         wistia-player[media-id='9qg1xl14ce']:not(:defined) { 
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9qg1xl14ce/swatch'); 
           display: block; 
@@ -85,6 +105,7 @@ export default function WhatWeDo() {
           filter: blur(5px); 
           padding-top: 100%; 
         }
+        wistia-player[media-id='aoangn3r46'],
         wistia-player[media-id='9qg1xl14ce'],
         wistia-player[media-id='2ucaviy334'] {
           object-fit: cover;

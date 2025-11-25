@@ -30,22 +30,6 @@ export default function VisionStrategy() {
             />
           </div>
         </div>
-        
-        {/* Video Showcase */}
-        <div className="mb-12 max-w-5xl mx-auto">
-          <div className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden" style={{ paddingTop: '100%' }}>
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl">
-              <wistia-player 
-                media-id="aoangn3r46" 
-                aspect="1"
-                autoplay
-                muted
-                className="absolute left-0 w-full rounded-2xl"
-                style={{ height: '200%', transform: 'translateY(-25%)' }}
-              ></wistia-player>
-            </div>
-          </div>
-        </div>
 
         <div className="text-center">
           <button
@@ -64,19 +48,6 @@ export default function VisionStrategy() {
           </button>
         </div>
       </div>
-      
-      <style>{`
-        wistia-player[media-id='aoangn3r46']:not(:defined) { 
-          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aoangn3r46/swatch'); 
-          display: block; 
-          filter: blur(5px); 
-          padding-top: 100%; 
-        }
-        wistia-player[media-id='aoangn3r46'] {
-          object-fit: cover;
-          object-position: center;
-        }
-      `}</style>
     </section>
   );
 }

@@ -4,11 +4,12 @@ export default function SimpleHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 overflow-hidden">
       {/* Hero Image Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
           src="/HERO.jpg" 
           alt="Hero" 
           className="w-full h-full object-cover"
+          style={{ transform: 'translateY(-3rem)' }}
         />
         {/* Gradient Fade to Black */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"></div>

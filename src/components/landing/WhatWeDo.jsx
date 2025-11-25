@@ -45,19 +45,29 @@ export default function WhatWeDo() {
 
         {/* Work Showcase Videos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-            <wistia-player 
-              media-id="9qg1xl14ce" 
-              aspect="0.5625"
-              className="absolute top-0 left-0 w-full h-full"
-            ></wistia-player>
+          <div className="relative w-full max-w-md mx-auto" style={{ paddingTop: '100%' }}>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <wistia-player 
+                media-id="9qg1xl14ce" 
+                aspect="1"
+                autoplay
+                muted
+                className="absolute top-0 left-0 w-full"
+                style={{ height: '200%', transform: 'translateY(0)' }}
+              ></wistia-player>
+            </div>
           </div>
-          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-            <wistia-player 
-              media-id="2ucaviy334" 
-              aspect="0.5625"
-              className="absolute top-0 left-0 w-full h-full"
-            ></wistia-player>
+          <div className="relative w-full max-w-md mx-auto" style={{ paddingTop: '100%' }}>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <wistia-player 
+                media-id="2ucaviy334" 
+                aspect="1"
+                autoplay
+                muted
+                className="absolute top-0 left-0 w-full"
+                style={{ height: '200%', transform: 'translateY(0)' }}
+              ></wistia-player>
+            </div>
           </div>
         </div>
       </div>
@@ -67,13 +77,18 @@ export default function WhatWeDo() {
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9qg1xl14ce/swatch'); 
           display: block; 
           filter: blur(5px); 
-          padding-top: 177.78%; 
+          padding-top: 100%; 
         }
         wistia-player[media-id='2ucaviy334']:not(:defined) { 
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2ucaviy334/swatch'); 
           display: block; 
           filter: blur(5px); 
-          padding-top: 177.78%; 
+          padding-top: 100%; 
+        }
+        wistia-player[media-id='9qg1xl14ce'],
+        wistia-player[media-id='2ucaviy334'] {
+          object-fit: cover;
+          object-position: top;
         }
       `}</style>
     </section>

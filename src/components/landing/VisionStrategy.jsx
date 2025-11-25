@@ -12,15 +12,38 @@ export default function VisionStrategy() {
             You have the vision for your business. We have the strategy and systems to bring it to life. Together, we build a lead generation machine that works around the clock.
           </p>
         </div>
+
+        {/* Image Showcase */}
+        <div className="mb-12 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8">
+          <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-lg overflow-hidden">
+            <img 
+              src="/stluciedentist-68.jpg" 
+              alt="Dentist" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-lg overflow-hidden">
+            <img 
+              src="/botox.jpg" 
+              alt="Botox" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
         
         {/* Video Showcase */}
         <div className="mb-12 max-w-5xl mx-auto">
-          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-            <wistia-player 
-              media-id="aoangn3r46" 
-              aspect="0.5625"
-              className="absolute top-0 left-0 w-full h-full"
-            ></wistia-player>
+          <div className="relative w-full max-w-md mx-auto" style={{ paddingTop: '100%' }}>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <wistia-player 
+                media-id="aoangn3r46" 
+                aspect="1"
+                autoplay
+                muted
+                className="absolute top-0 left-0 w-full"
+                style={{ height: '200%', transform: 'translateY(0)' }}
+              ></wistia-player>
+            </div>
           </div>
         </div>
 
@@ -47,7 +70,11 @@ export default function VisionStrategy() {
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aoangn3r46/swatch'); 
           display: block; 
           filter: blur(5px); 
-          padding-top: 177.78%; 
+          padding-top: 100%; 
+        }
+        wistia-player[media-id='aoangn3r46'] {
+          object-fit: cover;
+          object-position: top;
         }
       `}</style>
     </section>

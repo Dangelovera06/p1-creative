@@ -2,8 +2,21 @@ import React from "react";
 
 export default function SimpleHero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 bg-black">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 overflow-hidden">
+      {/* Hero Image Background */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/HERO.jpg" 
+          alt="Hero" 
+          className="w-full h-full object-cover"
+        />
+        {/* Gradient Fade to Black */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight">
           Transform Your Business
         </h1>

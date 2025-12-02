@@ -7,7 +7,6 @@ export default function DecemberLeadQuiz() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    company: '',
     email: '',
     phone: '',
     usingSocialMedia: '',
@@ -22,8 +21,8 @@ export default function DecemberLeadQuiz() {
     {
       id: 'contact',
       title: 'Your Contact Information',
-      subtitle: 'First & Last / Company',
-      fields: ['firstName', 'lastName', 'company', 'email', 'phone']
+      subtitle: 'Fill in your details below',
+      fields: ['firstName', 'lastName', 'email', 'phone']
     },
     {
       id: 'socialMedia',
@@ -108,7 +107,7 @@ export default function DecemberLeadQuiz() {
         
         window.fbq('trackCustom', 'DecemberLead', {
           first_name: formData.firstName,
-          company: formData.company,
+          last_name: formData.lastName,
           using_social_media: formData.usingSocialMedia,
           how_fast: formData.howFast,
           how_long: formData.howLong,
@@ -125,7 +124,6 @@ export default function DecemberLeadQuiz() {
         'form-name': 'december-lead-quiz',
         firstName: formData.firstName,
         lastName: formData.lastName,
-        company: formData.company,
         email: formData.email,
         phone: formData.phone,
         usingSocialMedia: formData.usingSocialMedia,
@@ -195,7 +193,6 @@ export default function DecemberLeadQuiz() {
         <input name="bot-field" />
         <input type="text" name="firstName" />
         <input type="text" name="lastName" />
-        <input type="text" name="company" />
         <input type="email" name="email" />
         <input type="tel" name="phone" />
         <input type="text" name="usingSocialMedia" />
@@ -284,16 +281,6 @@ export default function DecemberLeadQuiz() {
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors"
                   />
                 </div>
-              </div>
-              <div>
-                <label className="block text-sm text-white/70 mb-2">Company Name</label>
-                <input
-                  type="text"
-                  value={formData.company}
-                  onChange={(e) => handleInputChange('company', e.target.value)}
-                  placeholder="Your Business Name"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors"
-                />
               </div>
               <div>
                 <label className="block text-sm text-white/70 mb-2">Email *</label>

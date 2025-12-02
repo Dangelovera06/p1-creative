@@ -12,6 +12,7 @@ import WhatYouGet from "../components/landing/offer/WhatYouGet";
 import SocialProof from "../components/landing/offer/SocialProof";
 import CaseStudy from "../components/landing/offer/CaseStudy";
 import CalendlyEmbed from "../components/landing/offer/CalendlyEmbed";
+import DecemberLeadQuiz from "../components/landing/offer/DecemberLeadQuiz";
 
 export default function Offer() {
   const handleCTAClick = (e, location) => {
@@ -63,6 +64,7 @@ export default function Offer() {
       <EmotionalCore />
       <Blueprint onCTAClick={handleCTAClick} />
       <FinalClose onCTAClick={handleCTAClick} />
+      <DecemberLeadQuiz />
       <CalendlyEmbed />
 
       {/* Footer */}

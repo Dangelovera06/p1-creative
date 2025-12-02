@@ -15,13 +15,28 @@ import CalendlyEmbed from "../components/landing/offer/CalendlyEmbed";
 
 export default function Playbook() {
   const handleDownload = (e, location) => {
-    // Track download event
+    // Track download event with Facebook Pixel
     if (window.fbq) {
+      // Track as Lead event
       window.fbq('track', 'Lead', {
         content_name: `Playbook Download - ${location}`,
-        content_category: 'Download'
+        content_category: 'Download',
+        value: 0,
+        currency: 'USD'
+      });
+      
+      // Track custom PlaybookDownload event for better segmentation
+      window.fbq('trackCustom', 'PlaybookDownload', {
+        download_location: location,
+        file_name: 'playbook.pdf',
+        timestamp: new Date().toISOString()
       });
     }
+    
+    // Fire tracking pixel (1x1 transparent image for additional tracking platforms)
+    const trackingPixel = new Image(1, 1);
+    trackingPixel.src = `https://www.facebook.com/tr?id=614618117913023&ev=PlaybookDownload&cd[download_location]=${encodeURIComponent(location)}&noscript=1`;
+    
     // Download the playbook file
     const link = document.createElement('a');
     link.href = '/playbook.pdf';

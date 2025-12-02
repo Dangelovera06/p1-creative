@@ -20,22 +20,10 @@ export default function DecemberLeadQuiz() {
 
   const steps = [
     {
-      id: 'name',
-      title: 'Name / Business',
+      id: 'contact',
+      title: 'Your Contact Information',
       subtitle: 'First & Last / Company',
-      fields: ['firstName', 'lastName', 'company']
-    },
-    {
-      id: 'email',
-      title: 'Email',
-      subtitle: 'The best email to reach out to in case we need to.',
-      fields: ['email']
-    },
-    {
-      id: 'phone',
-      title: 'Phone Number',
-      subtitle: "In case it's something urgent, we will send an SMS / Call.",
-      fields: ['phone']
+      fields: ['firstName', 'lastName', 'company', 'email', 'phone']
     },
     {
       id: 'socialMedia',
@@ -86,8 +74,8 @@ export default function DecemberLeadQuiz() {
   const canProceed = () => {
     const step = steps[currentStep];
     if (step.fields) {
-      if (step.id === 'name') {
-        return formData.firstName && formData.lastName;
+      if (step.id === 'contact') {
+        return formData.firstName && formData.lastName && formData.email && formData.phone;
       }
       return step.fields.every(field => formData[field]);
     }
@@ -201,8 +189,10 @@ export default function DecemberLeadQuiz() {
 
   return (
     <section className="py-16 md:py-24 bg-neutral-900">
-      {/* Hidden Netlify Form */}
-      <form name="december-lead-quiz" netlify hidden>
+      {/* Hidden Netlify Form for bot detection */}
+      <form name="december-lead-quiz" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="december-lead-quiz" />
+        <input name="bot-field" />
         <input type="text" name="firstName" />
         <input type="text" name="lastName" />
         <input type="text" name="company" />
@@ -270,8 +260,8 @@ export default function DecemberLeadQuiz() {
             </p>
           )}
 
-          {/* Name Fields */}
-          {currentStepData.id === 'name' && (
+          {/* Contact Fields - All in one step */}
+          {currentStepData.id === 'contact' && (
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -305,32 +295,28 @@ export default function DecemberLeadQuiz() {
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors"
                 />
               </div>
-            </div>
-          )}
-
-          {/* Email Field */}
-          {currentStepData.id === 'email' && (
-            <div>
-              <input
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleInputChange('email', e.target.value)}
-                placeholder="john@business.com"
-                className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors text-lg"
-              />
-            </div>
-          )}
-
-          {/* Phone Field */}
-          {currentStepData.id === 'phone' && (
-            <div>
-              <input
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => handleInputChange('phone', e.target.value)}
-                placeholder="(555) 123-4567"
-                className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors text-lg"
-              />
+              <div>
+                <label className="block text-sm text-white/70 mb-2">Email *</label>
+                <p className="text-xs text-white/50 mb-2">The best email to reach out to in case we need to.</p>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  placeholder="john@business.com"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-white/70 mb-2">Phone Number *</label>
+                <p className="text-xs text-white/50 mb-2">In case it's something urgent, we will send an SMS / Call.</p>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  placeholder="(555) 123-4567"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#006eff] transition-colors"
+                />
+              </div>
             </div>
           )}
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 
 import Hero from "../components/landing/offer/Hero";
@@ -15,14 +15,11 @@ import CalendlyEmbed from "../components/landing/offer/CalendlyEmbed";
 import DecemberLeadQuiz from "../components/landing/offer/DecemberLeadQuiz";
 
 export default function Offer() {
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+
   const handleCTAClick = (e, location) => {
-    if (window.fbq) {
-      window.fbq('track', 'Lead', {
-        content_name: `${location} CTA Click`,
-        content_category: 'CTA Button'
-      });
-    }
-    window.open('https://forms.fillout.com/t/6HP2aE8grBus', '_blank');
+    // Open the quiz popup
+    setIsQuizOpen(true);
   };
 
   return (
@@ -64,8 +61,10 @@ export default function Offer() {
       <EmotionalCore />
       <Blueprint onCTAClick={handleCTAClick} />
       <FinalClose onCTAClick={handleCTAClick} />
-      <DecemberLeadQuiz />
       <CalendlyEmbed />
+
+      {/* Quiz Popup Modal */}
+      <DecemberLeadQuiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
 
       {/* Footer */}
       <footer className="py-8 sm:py-12 w-full border-t border-white/10 bg-neutral-950">

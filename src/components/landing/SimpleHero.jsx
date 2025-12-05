@@ -39,28 +39,30 @@ export default function SimpleHero() {
       
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto w-full">
-        {/* Main Headline - MUCH BIGGER with reactive text */}
+        {/* Main Headline - Off-center animation */}
         <motion.div
           style={{ y: headlineY, scale: headlineScale }}
-          className="text-center mb-10"
+          className="mb-10 overflow-hidden"
         >
           <motion.h1 
             style={{ letterSpacing }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.95] tracking-tight"
           >
+            {/* TRANSFORM comes from left */}
             <motion.span
-              initial={{ opacity: 0, y: 80, letterSpacing: "0.3em" }}
-              animate={{ opacity: 1, y: 0, letterSpacing: "0.02em" }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-              className="block"
+              initial={{ opacity: 0, x: -100, letterSpacing: "0.2em" }}
+              animate={{ opacity: 1, x: 0, letterSpacing: "0.02em" }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+              className="block text-left pl-2 sm:pl-4"
             >
               TRANSFORM
             </motion.span>
+            {/* YOUR BUSINESS comes from right */}
             <motion.span
-              initial={{ opacity: 0, y: 80, letterSpacing: "0.3em" }}
-              animate={{ opacity: 1, y: 0, letterSpacing: "0.02em" }}
-              transition={{ duration: 1, delay: 0.35, ease: [0.215, 0.61, 0.355, 1] }}
-              className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70"
+              initial={{ opacity: 0, x: 100, letterSpacing: "0.2em" }}
+              animate={{ opacity: 1, x: 0, letterSpacing: "0.02em" }}
+              transition={{ duration: 0.9, delay: 0.35, ease: [0.215, 0.61, 0.355, 1] }}
+              className="block text-right pr-2 sm:pr-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70"
             >
               YOUR BUSINESS
             </motion.span>

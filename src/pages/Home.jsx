@@ -2,7 +2,6 @@ import React from "react";
 
 import SimpleHero from "../components/landing/SimpleHero";
 import BringingToLife from "../components/landing/BringingToLife";
-import WhatWeDo from "../components/landing/WhatWeDo";
 import WhatClientsSay from "../components/landing/WhatClientsSay";
 import VisionStrategy from "../components/landing/VisionStrategy";
 import OurMission from "../components/landing/OurMission";
@@ -14,7 +13,6 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <SimpleHero />
       <BringingToLife />
-      <WhatWeDo />
       <WhatClientsSay />
       <VisionStrategy />
       <OurMission />

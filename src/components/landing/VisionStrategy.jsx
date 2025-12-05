@@ -4,17 +4,20 @@ export default function VisionStrategy() {
   return (
     <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8">
-            Your Vision, Our Strategy
-          </h2>
-          <p className="text-lg sm:text-xl text-white/70 leading-relaxed mb-12 max-w-2xl mx-auto">
-            You have the vision for your business. We have the strategy and systems to bring it to life. Together, we build a lead generation machine that works around the clock.
-          </p>
+        {/* RIGHT aligned */}
+        <div className="flex flex-col items-end">
+          <div className="text-right max-w-2xl mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8">
+              Your Vision, Our Strategy
+            </h2>
+            <p className="text-lg sm:text-xl text-white/70 leading-relaxed">
+              You have the vision for your business. We have the strategy and systems to bring it to life. Together, we build a lead generation machine that works around the clock.
+            </p>
+          </div>
         </div>
 
-        {/* Image Showcase */}
-        <div className="mb-12 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8">
+        {/* Image Showcase - aligned right */}
+        <div className="mb-12 flex flex-col sm:flex-row justify-end items-center gap-6 sm:gap-8">
           <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-lg overflow-hidden">
             <img 
               src="/stluciedentist-68.jpg" 
@@ -31,7 +34,7 @@ export default function VisionStrategy() {
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-right">
           <button
             onClick={() => {
               if (window.fbq) {
@@ -42,9 +45,17 @@ export default function VisionStrategy() {
               }
               window.open('https://forms.fillout.com/t/6HP2aE8grBus', '_blank');
             }}
-            className="px-8 py-4 bg-white text-black font-medium text-sm uppercase tracking-wider hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-3 text-white font-semibold text-lg uppercase tracking-widest hover:text-white/80 transition-all duration-300"
           >
-            Get Started
+            <span>Get Started</span>
+            <svg 
+              className="w-6 h-6 transform hover:translate-x-2 transition-transform duration-300" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </button>
         </div>
       </div>

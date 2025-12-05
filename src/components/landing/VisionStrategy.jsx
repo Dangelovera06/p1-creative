@@ -16,20 +16,20 @@ export default function VisionStrategy() {
           </div>
         </div>
 
-        {/* Image Showcase - aligned right */}
+        {/* Image Showcase - aligned right, BIGGER */}
         <div className="mb-12 flex flex-col sm:flex-row justify-end items-center gap-6 sm:gap-8">
-          <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-lg overflow-hidden">
+          <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src="/stluciedentist-68.jpg" 
               alt="Dentist" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-lg overflow-hidden">
+          <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src="/botox.jpg" 
               alt="Botox" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>

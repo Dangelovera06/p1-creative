@@ -96,7 +96,7 @@ export default function SimpleHero() {
           </div>
         </motion.div>
 
-        {/* CTA Button */}
+        {/* CTA - Text with arrow */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,10 +113,17 @@ export default function SimpleHero() {
               }
               window.open('https://forms.fillout.com/t/6HP2aE8grBus', '_blank');
             }}
-            className="group relative px-10 py-5 bg-white text-black font-semibold text-sm uppercase tracking-widest hover:bg-white/95 transition-all duration-300 overflow-hidden"
+            className="group inline-flex items-center gap-3 text-white font-semibold text-lg sm:text-xl uppercase tracking-widest hover:text-white/80 transition-all duration-300"
           >
-            <span className="relative z-10">Get Started</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span>Get Started</span>
+            <svg 
+              className="w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </button>
         </motion.div>
       </div>

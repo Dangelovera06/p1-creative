@@ -50,33 +50,33 @@ export default function MedSpaOffer() {
   return (
     <div className="min-h-screen overflow-x-hidden w-full bg-black">
       {/* Hero with Opt-in Form */}
-      <section className="min-h-screen flex flex-col justify-center px-5 py-8 bg-black">
+      <section className="min-h-screen flex flex-col justify-center px-5 py-6 bg-black">
         {/* Logo */}
-        <div className="flex justify-center mb-8 sm:mb-10">
+        <div className="flex justify-center mb-6">
           <img 
             src="/p1 white.png" 
             alt="P1 Creative Logo" 
-            className="h-10 sm:h-12 w-auto"
+            className="h-8 sm:h-10 w-auto"
           />
         </div>
 
-        <div className="max-w-xl mx-auto w-full">
+        <div className="max-w-2xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8 sm:mb-10"
+            className="text-center mb-6"
           >
             {/* Main Headline */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-5">
-              <span className="text-white/60 text-base sm:text-lg md:text-xl font-normal block mb-2">NEW 2026 VIDEO FOR</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
+              <span className="text-white/60 text-lg sm:text-xl md:text-2xl font-normal block mb-2">NEW 2026 VIDEO FOR</span>
               Med Spas, Aesthetic Clinics{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
                 & Cosmetic Pros
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-white/70 max-w-lg mx-auto">
+            <p className="text-lg sm:text-xl text-white/70 max-w-xl mx-auto">
               How we added an extra <span className="text-white font-semibold">$30K/month</span> using AI — no overpriced agencies.
             </p>
           </motion.div>

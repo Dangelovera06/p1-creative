@@ -29,18 +29,6 @@ export default function Hero({ onCTAClick }) {
             </p>
           </motion.div>
 
-          {/* Video Section */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-8 mb-10 md:mb-12 max-w-6xl mx-auto w-full px-2"
-          >
-            <div className="relative overflow-hidden border-2 border-[#006eff]/30 shadow-2xl shadow-[#006eff]/20">
-              <wistia-player media-id="w4p6cr6l8l" aspect="1.7777777777777777" style={{ transform: 'scale(1.02)' }}></wistia-player>
-            </div>
-          </motion.div>
-
           {/* CTA Button */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

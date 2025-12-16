@@ -8,7 +8,7 @@ export default function Hero({ onCTAClick }) {
   return (
     <BeamsBackground intensity="medium">
       {/* Main Hero Content */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-16 pt-24 sm:pt-28">
+      <div className="relative z-10 px-6 pt-24 pb-16 sm:pt-28 sm:pb-20">
         <div className="mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ export default function Hero({ onCTAClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col items-center gap-4 md:gap-5 px-4"
+            className="flex flex-col items-center gap-4 md:gap-5 px-4 mt-10 sm:mt-12"
           >
             <RainbowButton
               onClick={(e) => onCTAClick(e, 'Hero')}

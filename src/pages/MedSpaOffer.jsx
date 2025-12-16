@@ -58,16 +58,12 @@ export default function MedSpaOffer() {
             transition={{ duration: 0.5 }}
             className="text-center mb-6"
           >
-            {/* Main Headline */}
+            {/* Top Label */}
+            <p className="text-white/50 text-base sm:text-lg md:text-xl font-normal mb-4">NEW 2026 VIDEO FOR</p>
+            
+            {/* Main Headline - one paragraph */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.2]">
-              <span className="text-white/50 text-lg sm:text-xl md:text-2xl font-normal">NEW 2026 VIDEO FOR </span>
-              Med Spas, Aesthetic Clinics{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
-                & Cosmetic Pros
-              </span>
-              {' '}— How we added an extra{' '}
-              <span className="text-white">$30K/month</span>
-              {' '}using AI, no overpriced agencies.
+              Med Spas, Aesthetic Clinics <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">&amp; Cosmetic Pros</span> — How we added an extra <span className="text-white">$30K/month</span> using AI, no overpriced agencies.
             </h1>
           </motion.div>
 

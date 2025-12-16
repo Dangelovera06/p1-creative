@@ -8,7 +8,7 @@ export default function Hero({ onCTAClick }) {
   return (
     <BeamsBackground intensity="medium">
       {/* Main Hero Content */}
-      <div className="relative z-10 px-6 pt-24 pb-16 sm:pt-28 sm:pb-20">
+      <div className="relative z-10 px-6 pt-24 pb-8 sm:pt-28 sm:pb-10">
         <div className="mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

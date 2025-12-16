@@ -44,13 +44,19 @@ export default function FinalClose({ onCTAClick, ctaText = "Book Your Free Call"
               onClick={(e) => {
                 if (ctaText.toLowerCase().includes('book') || ctaText.toLowerCase().includes('call')) {
                   if (window.fbq) {
-                    window.fbq('track', 'Lead', {
-                      content_name: 'FinalClose Calendly CTA Click',
+                    window.fbq('trackCustom', 'QuizStarted', {
+                      content_name: 'FinalClose CTA Click',
                       content_category: 'CTA Button'
                     });
                   }
                   window.open('https://calendly.com/p1creative/30min', '_blank');
                 } else if (onCTAClick) {
+                  if (window.fbq) {
+                    window.fbq('trackCustom', 'QuizStarted', {
+                      content_name: 'FinalClose Quiz CTA',
+                      content_category: 'Quiz'
+                    });
+                  }
                   onCTAClick(e, 'FinalClose');
                 }
               }}

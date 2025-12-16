@@ -68,16 +68,16 @@ export default function MedSpaOffer() {
             className="text-center mb-6"
           >
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
-              <span className="text-white/60 text-lg sm:text-xl md:text-2xl font-normal block mb-2">NEW 2026 VIDEO FOR</span>
+            <p className="text-white/60 text-lg sm:text-xl md:text-2xl font-normal mb-3">NEW 2026 VIDEO FOR</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-3">
               Med Spas, Aesthetic Clinics{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
                 & Cosmetic Pros
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/70 max-w-xl mx-auto">
-              How we added an extra <span className="text-white font-semibold">$30K/month</span> using AI — no overpriced agencies.
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/80 leading-[1.15]">
+              How we added an extra <span className="text-white">$30K/month</span> using AI — no overpriced agencies.
             </p>
           </motion.div>
 

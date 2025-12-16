@@ -61,45 +61,39 @@ export default function MedSpaOffer() {
         </div>
       </header>
 
-      {/* Hero with Opt-in Form */}
+      {/* Hero with Opt-in Form - fits on one mobile screen */}
       <BeamsBackground intensity="medium">
-        <section className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 pb-16">
+        <section className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 pb-8 sm:pt-24 sm:pb-16">
           <div className="max-w-4xl mx-auto w-full">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-10"
+              transition={{ duration: 0.6 }}
+              className="text-center mb-6 sm:mb-10"
             >
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 border border-[#006eff]/40 bg-[#006eff]/10 backdrop-blur-sm py-2 px-4 rounded-full mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#006eff] animate-pulse"></div>
-                <span className="text-sm text-white/90 font-medium uppercase tracking-wide">Free Training Video</span>
-              </div>
-
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Where Should We Send You The Video On How We Added An Extra{' '}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
+                <span className="text-white/60 text-lg sm:text-xl md:text-2xl font-normal block mb-2">NEW 2026 VIDEO FOR</span>
+                Med Spas, Aesthetic Clinics{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
-                  $30K/Month
-                </span>{' '}
-                To Med Spa Clinics With AI
+                  & Cosmetic Pros
+                </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto">
-                No overpriced agency fees. No complicated tech. Just a proven system that fills your calendar with qualified patients.
+              <p className="text-base sm:text-lg text-white/70 max-w-xl mx-auto">
+                How we added an extra <span className="text-white font-semibold">$30K/month</span> using AI — no overpriced agencies.
               </p>
             </motion.div>
 
             {/* Opt-in Form */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
               className="max-w-md mx-auto"
             >
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
                     <input
                       type="text"
@@ -108,7 +102,7 @@ export default function MedSpaOffer() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-[#006eff] focus:ring-1 focus:ring-[#006eff] transition-all"
+                      className="w-full px-4 py-3 sm:py-4 bg-black/50 border border-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/30 transition-all"
                     />
                   </div>
                   <div>
@@ -119,7 +113,7 @@ export default function MedSpaOffer() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-[#006eff] focus:ring-1 focus:ring-[#006eff] transition-all"
+                      className="w-full px-4 py-3 sm:py-4 bg-black/50 border border-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/30 transition-all"
                     />
                   </div>
                   <div>
@@ -130,17 +124,17 @@ export default function MedSpaOffer() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-[#006eff] focus:ring-1 focus:ring-[#006eff] transition-all"
+                      className="w-full px-4 py-3 sm:py-4 bg-black/50 border border-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/30 transition-all"
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-[#006eff] hover:bg-[#0055cc] text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#006eff]/30"
+                    className="w-full py-3 sm:py-4 bg-white hover:bg-white/90 text-black font-bold text-base sm:text-lg rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Sending..." : "Send Me The Video →"}
                   </button>
-                  <p className="text-center text-white/40 text-sm">
+                  <p className="text-center text-white/40 text-xs sm:text-sm">
                     Your info is safe. We hate spam too.
                   </p>
                 </form>
@@ -148,44 +142,17 @@ export default function MedSpaOffer() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center p-8 bg-white/5 border border-[#006eff]/30 rounded-2xl"
+                  className="text-center p-6 sm:p-8 bg-black/50 border border-black rounded-xl"
                 >
-                  <div className="w-16 h-16 bg-[#006eff]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-[#006eff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Inbox!</h3>
-                  <p className="text-white/70">We just sent the video to your email. Check your spam folder if you don't see it.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Check Your Inbox!</h3>
+                  <p className="text-white/70 text-sm sm:text-base">We just sent the video to your email.</p>
                 </motion.div>
               )}
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/50 text-sm"
-            >
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                No Credit Card Required
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Instant Access
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                100% Free
-              </span>
             </motion.div>
           </div>
         </section>

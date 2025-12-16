@@ -50,7 +50,7 @@ export default function MedSpaOffer() {
   return (
     <div className="min-h-screen overflow-x-hidden w-full bg-black">
       {/* Hero with Opt-in Form */}
-      <section className="min-h-screen flex flex-col justify-center px-5 py-6 bg-black">
+      <section className="px-5 pt-8 pb-12 sm:pt-12 sm:pb-16 bg-black">
         <div className="max-w-2xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 15 }}

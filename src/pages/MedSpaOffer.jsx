@@ -51,15 +51,6 @@ export default function MedSpaOffer() {
     <div className="min-h-screen overflow-x-hidden w-full bg-black">
       {/* Hero with Opt-in Form */}
       <section className="min-h-screen flex flex-col justify-center px-5 py-6 bg-black">
-        {/* Logo */}
-        <div className="flex justify-center mb-6">
-          <img 
-            src="/p1 white.png" 
-            alt="P1 Creative Logo" 
-            className="h-8 sm:h-10 w-auto"
-          />
-        </div>
-
         <div className="max-w-2xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -68,17 +59,16 @@ export default function MedSpaOffer() {
             className="text-center mb-6"
           >
             {/* Main Headline */}
-            <p className="text-white/60 text-lg sm:text-xl md:text-2xl font-normal mb-3">NEW 2026 VIDEO FOR</p>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.2]">
+              <span className="text-white/50 text-lg sm:text-xl md:text-2xl font-normal">NEW 2026 VIDEO FOR </span>
               Med Spas, Aesthetic Clinics{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
                 & Cosmetic Pros
               </span>
+              {' '}— How we added an extra{' '}
+              <span className="text-white">$30K/month</span>
+              {' '}using AI, no overpriced agencies.
             </h1>
-
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/80 leading-[1.15]">
-              How we added an extra <span className="text-white">$30K/month</span> using AI — no overpriced agencies.
-            </p>
           </motion.div>
 
           {/* Opt-in Form */}

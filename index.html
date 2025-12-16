@@ -78,5 +78,14 @@
       <input type="text" name="howLong" />
       <input type="text" name="submittedAt" />
     </form>
+    
+    <!-- Hidden Netlify Form for Med Spa Opt-in -->
+    <form name="medspa-optin" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="medspa-optin" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+    </form>
   </body>
 </html>

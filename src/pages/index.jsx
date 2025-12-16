@@ -5,6 +5,7 @@ import Quiz from "./Quiz";
 import Offer from "./Offer";
 import Playbook from "./Playbook";
 import ThankYou from "./ThankYou";
+import MedSpaOffer from "./MedSpaOffer";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ const PAGES = {
     Offer: Offer,
     Playbook: Playbook,
     ThankYou: ThankYou,
+    MedSpaOffer: MedSpaOffer,
     
 }
 
@@ -49,6 +51,8 @@ function PagesContent() {
                 <Route path="/Playbook" element={<Playbook />} />
                 <Route path="/ThankYou" element={<ThankYou />} />
                 <Route path="/thank-you" element={<ThankYou />} />
+                <Route path="/MedSpaOffer" element={<MedSpaOffer />} />
+                <Route path="/medspa" element={<MedSpaOffer />} />
                 
             </Routes>
         </Layout>

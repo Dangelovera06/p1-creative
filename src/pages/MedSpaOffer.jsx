@@ -1,0 +1,291 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { BeamsBackground } from "@/components/ui/beams-background";
+
+export default function MedSpaOffer() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Track with Facebook Pixel
+    if (window.fbq) {
+      window.fbq('track', 'Lead', {
+        content_name: 'Med Spa Offer Opt-in',
+        content_category: 'Lead Magnet'
+      });
+    }
+
+    // Submit to Netlify Forms
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "medspa-optin",
+          ...formData
+        }).toString()
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+
+    setIsSubmitting(false);
+  };
+
+  return (
+    <div className="min-h-screen overflow-x-hidden w-full bg-black">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-4 sm:px-6 md:px-8 py-3 sm:py-4">
+          <img 
+            src="/p1 white.png" 
+            alt="P1 Creative Logo" 
+            className="h-8 sm:h-10 md:h-12 w-auto"
+          />
+        </div>
+      </header>
+
+      {/* Hero with Opt-in Form */}
+      <BeamsBackground intensity="medium">
+        <section className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 pb-16">
+          <div className="max-w-4xl mx-auto w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-10"
+            >
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 border border-[#006eff]/40 bg-[#006eff]/10 backdrop-blur-sm py-2 px-4 rounded-full mb-6">
+                <div className="w-2 h-2 rounded-full bg-[#006eff] animate-pulse"></div>
+                <span className="text-sm text-white/90 font-medium uppercase tracking-wide">Free Training Video</span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Where Should We Send You The Video On How We Added An Extra{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
+                  $30K/Month
+                </span>{' '}
+                To Med Spa Clinics With AI
+              </h1>
+
+              <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto">
+                No overpriced agency fees. No complicated tech. Just a proven system that fills your calendar with qualified patients.
+              </p>
+            </motion.div>
+
+            {/* Opt-in Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="max-w-md mx-auto"
+            >
+              {!isSubmitted ? (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-5 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-[#006eff] focus:ring-1 focus:ring-[#006eff] transition-all"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-5 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-[#006eff] focus:ring-1 focus:ring-[#006eff] transition-all"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Your Phone Number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-5 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-[#006eff] focus:ring-1 focus:ring-[#006eff] transition-all"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-[#006eff] hover:bg-[#0055cc] text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#006eff]/30"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Me The Video →"}
+                  </button>
+                  <p className="text-center text-white/40 text-sm">
+                    Your info is safe. We hate spam too.
+                  </p>
+                </form>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center p-8 bg-white/5 border border-[#006eff]/30 rounded-2xl"
+                >
+                  <div className="w-16 h-16 bg-[#006eff]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-[#006eff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Inbox!</h3>
+                  <p className="text-white/70">We just sent the video to your email. Check your spam folder if you don't see it.</p>
+                </motion.div>
+              )}
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/50 text-sm"
+            >
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                No Credit Card Required
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                Instant Access
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                100% Free
+              </span>
+            </motion.div>
+          </div>
+        </section>
+      </BeamsBackground>
+
+      {/* What You'll Learn Section */}
+      <section className="py-20 px-4 sm:px-6 bg-black">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-left mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-light text-white mb-6">
+              What You'll Discover In This Video
+            </h2>
+          </motion.div>
+
+          <div className="space-y-6">
+            {[
+              "The exact AI system we use to follow up with leads 24/7 (without hiring more staff)",
+              "How to turn cold leads into booked appointments automatically",
+              "Why most med spas waste 80% of their ad spend — and how to fix it",
+              "The 3-step funnel that generated $30K+ in additional monthly revenue",
+              "How to scale without the headaches of traditional agencies"
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-4"
+              >
+                <div className="flex-shrink-0 w-8 h-8 bg-[#006eff]/20 rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-4 h-4 text-[#006eff]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-lg text-white/80">{item}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Second CTA Section */}
+      <section className="py-20 px-4 sm:px-6 bg-gradient-to-b from-black to-neutral-950">
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-light text-white mb-6">
+              Ready To Add $30K+ To Your Monthly Revenue?
+            </h2>
+            <p className="text-lg text-white/60 mb-8">
+              Get the free video and see exactly how we do it.
+            </p>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-3 text-white font-semibold text-lg uppercase tracking-widest hover:text-[#006eff] transition-all duration-300 group"
+            >
+              <span>Get Free Access</span>
+              <svg 
+                className="w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 sm:py-12 w-full border-t border-white/10 bg-neutral-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <img 
+              src="/p1 white.png" 
+              alt="P1 Creative Logo" 
+              className="h-10 sm:h-12 w-auto"
+            />
+          </div>
+          <p className="text-xs sm:text-sm mb-6 sm:mb-8 text-white/60">
+            Turning med spas into lead-generating machines
+          </p>
+          <div className="text-xs uppercase tracking-wider text-white/40">
+            © 2025 P1 Creative. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+

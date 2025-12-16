@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { BeamsBackground } from "@/components/ui/beams-background";
 
 export default function MedSpaOffer() {
   const [formData, setFormData] = useState({
@@ -50,113 +49,103 @@ export default function MedSpaOffer() {
 
   return (
     <div className="min-h-screen overflow-x-hidden w-full bg-black">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-4 sm:px-6 md:px-8 py-3 sm:py-4">
+      {/* Hero with Opt-in Form - starts at top */}
+      <section className="px-4 sm:px-6 pt-6 pb-8 sm:pt-10 sm:pb-12 bg-black">
+        {/* Logo */}
+        <div className="flex justify-center mb-6 sm:mb-8">
           <img 
             src="/p1 white.png" 
             alt="P1 Creative Logo" 
-            className="h-8 sm:h-10 md:h-12 w-auto"
+            className="h-8 sm:h-10 w-auto"
           />
         </div>
-      </header>
 
-      {/* Hero with Opt-in Form - fits on one mobile screen */}
-      <BeamsBackground intensity="medium">
-        <section className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 pb-8 sm:pt-24 sm:pb-16">
-          <div className="max-w-4xl mx-auto w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-6 sm:mb-10"
-            >
-              {/* Main Headline */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
-                <span className="text-white/60 text-lg sm:text-xl md:text-2xl font-normal block mb-2">NEW 2026 VIDEO FOR</span>
-                Med Spas, Aesthetic Clinics{' '}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
-                  & Cosmetic Pros
-                </span>
-              </h1>
+        <div className="max-w-4xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-6 sm:mb-8"
+          >
+            {/* Main Headline */}
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3 sm:mb-4">
+              <span className="text-white/60 text-sm sm:text-base md:text-lg font-normal block mb-1">NEW 2026 VIDEO FOR</span>
+              Med Spas, Aesthetic Clinics{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006eff] via-[#00a8ff] to-[#006eff]">
+                & Cosmetic Pros
+              </span>
+            </h1>
 
-              <p className="text-base sm:text-lg text-white/70 max-w-xl mx-auto">
-                How we added an extra <span className="text-white font-semibold">$30K/month</span> using AI — no overpriced agencies.
-              </p>
-            </motion.div>
+            <p className="text-sm sm:text-base text-white/70 max-w-lg mx-auto">
+              How we added an extra <span className="text-white font-semibold">$30K/month</span> using AI — no overpriced agencies.
+            </p>
+          </motion.div>
 
-            {/* Opt-in Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="max-w-md mx-auto"
-            >
-              {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 sm:py-4 bg-black/50 border border-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/30 transition-all"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 sm:py-4 bg-black/50 border border-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/30 transition-all"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Your Phone Number"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 sm:py-4 bg-black/50 border border-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/30 transition-all"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-3 sm:py-4 bg-white hover:bg-white/90 text-black font-bold text-base sm:text-lg rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Me The Video →"}
-                  </button>
-                  <p className="text-center text-white/40 text-xs sm:text-sm">
-                    Your info is safe. We hate spam too.
-                  </p>
-                </form>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center p-6 sm:p-8 bg-black/50 border border-black rounded-xl"
+          {/* Opt-in Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="max-w-sm mx-auto"
+          >
+            {!isSubmitted ? (
+              <form onSubmit={handleSubmit} className="space-y-2.5">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/30 transition-all text-sm"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/30 transition-all text-sm"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/30 transition-all text-sm"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 bg-white hover:bg-white/90 text-black font-bold text-sm sm:text-base rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Check Your Inbox!</h3>
-                  <p className="text-white/70 text-sm sm:text-base">We just sent the video to your email.</p>
-                </motion.div>
-              )}
-            </motion.div>
-          </div>
-        </section>
-      </BeamsBackground>
+                  {isSubmitting ? "Sending..." : "Send Me The Video →"}
+                </button>
+                <p className="text-center text-white/30 text-xs">
+                  Your info is safe. We hate spam too.
+                </p>
+              </form>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center p-6 bg-white/5 border border-white/10 rounded-xl"
+              >
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">Check Your Inbox!</h3>
+                <p className="text-white/60 text-sm">We just sent the video to your email.</p>
+              </motion.div>
+            )}
+          </motion.div>
+        </div>
+      </section>
 
       {/* What You'll Learn Section */}
       <section className="py-20 px-4 sm:px-6 bg-black">

@@ -190,6 +190,48 @@ export default function MedSpaOffer() {
         </div>
       </section>
 
+      {/* What You Get Section */}
+      <section className="py-20 px-4 sm:px-6 bg-black">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-light text-white mb-4">
+              What You're Getting
+            </h2>
+            <p className="text-lg text-white/60">Here's what we install for you:</p>
+          </motion.div>
+
+          <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/[0.03] border border-white/10 max-w-2xl mx-auto">
+            <div className="space-y-5">
+              {[
+                "10 Cinematic Videos That Convert",
+                "High-Converting Paid Ad System",
+                "Custom Landing Page + AI Caller",
+                "Automated Booking System",
+                "SOPs + Slack + Weekly Optimization"
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  className="flex items-start gap-4"
+                >
+                  <span className="text-[#006eff] text-xl flex-shrink-0">✓</span>
+                  <span className="text-base sm:text-lg text-white font-medium">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Second CTA Section */}
       <section className="py-20 px-4 sm:px-6 bg-black">
         <div className="max-w-2xl mx-auto text-center">

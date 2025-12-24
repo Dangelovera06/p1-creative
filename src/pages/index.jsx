@@ -6,6 +6,7 @@ import Offer from "./Offer";
 import Playbook from "./Playbook";
 import ThankYou from "./ThankYou";
 import MedSpaOffer from "./MedSpaOffer";
+import System from "./System";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ const PAGES = {
     Playbook: Playbook,
     ThankYou: ThankYou,
     MedSpaOffer: MedSpaOffer,
+    System: System,
     
 }
 
@@ -53,6 +55,8 @@ function PagesContent() {
                 <Route path="/thank-you" element={<ThankYou />} />
                 <Route path="/MedSpaOffer" element={<MedSpaOffer />} />
                 <Route path="/medspa" element={<MedSpaOffer />} />
+                <Route path="/System" element={<System />} />
+                <Route path="/system" element={<System />} />
                 
             </Routes>
         </Layout>

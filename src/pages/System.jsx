@@ -162,25 +162,14 @@ export default function System() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-left"
+            className="text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
-              Stop Wasting Money On Marketing That Doesn't Work
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Stop Wasting Money on Marketing That Doesn't Convert
             </h2>
-            <div className="space-y-6 text-lg text-white/70">
-              <p>
-                You've tried the agencies. You've boosted posts. You've run ads that got likes but no calls.
-              </p>
-              <p>
-                The problem isn't your business — it's that you don't have a <span className="text-white font-semibold">system</span>.
-              </p>
-              <p>
-                A system that captures attention, nurtures leads automatically, and books appointments while you sleep.
-              </p>
-              <p className="text-white font-semibold text-xl">
-                That's exactly what we build for you.
-              </p>
-            </div>
+            <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto">
+              Most businesses burn through cash on ads, content, and agencies that generate vanity metrics but zero qualified leads.
+            </p>
           </motion.div>
         </div>
       </section>

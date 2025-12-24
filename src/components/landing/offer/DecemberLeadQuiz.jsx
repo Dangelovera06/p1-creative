@@ -207,7 +207,7 @@ export default function DecemberLeadQuiz({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-lg sm:max-h-[90vh] bg-neutral-900 rounded-2xl z-[101] overflow-hidden flex flex-col"
+            className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-[50%] sm:-translate-x-1/2 sm:-translate-y-[50%] sm:w-full sm:max-w-lg sm:max-h-[85vh] bg-neutral-900 rounded-2xl z-[101] overflow-hidden flex flex-col"
           >
             {/* Close Button */}
             <button

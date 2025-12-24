@@ -156,13 +156,13 @@ export default function System() {
 
       {/* The Problem Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-neutral-950">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
               Stop Wasting Money on Marketing That Doesn't Convert
@@ -171,6 +171,40 @@ export default function System() {
               Most businesses burn through cash on ads, content, and agencies that generate vanity metrics but zero qualified leads.
             </p>
           </motion.div>
+
+          {/* Problem Boxes */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "💸",
+                title: "Wasted Ad Spend",
+                description: "Thousands spent on ads that get clicks but no calls or bookings."
+              },
+              {
+                icon: "📉",
+                title: "No Follow-Up System",
+                description: "Leads go cold because no one follows up fast enough or consistently."
+              },
+              {
+                icon: "😤",
+                title: "Agency Runaround",
+                description: "Paying premium prices for agencies that deliver reports, not results."
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-white/60">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
